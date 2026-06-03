@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import FormBase from '../../components/FormBase.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import Footer from '../../components/Footer.astro';
+import { partners } from '../../data/partners';
+import type { PartnerData } from '../../data/partners';
+
+export async function getStaticPaths() {
+  return partners
+    .filter(p => p.active)
+    .map(partner => ({
+      params: { slug: partner.slug },
+      props: { partner },
+    }));
+}
+
+interface Props {
+  partner: PartnerData;
+}
+
+const { partner } = Astro.props;
+
+const modules = [
+  'Hire', 'Assess', 'Train', 'Retain', 'LicenseTraQ', 'CE', 'Ask Ellie'
+];
+---
+
+<BaseLayout title={partner.metaTitle} description={partner.metaDescription}>
+  <NavBar />
+
+  <section class="partner-hero">
+    <div class="container partner-hero-inner">
+      <div class="partner-eyebrow-row">
+        <span class="eyebrow">{partner.eyebrow}</span>
+        {partner.partnerName && (
+          <span class="partner-name-badge">{partner.partnerName}</span>
+        )}
+      </div>
+      <h1>{partner.headline}</h1>
+      <p class="partner-hero-sub">{partner.subheadline}</p>
+      {partner.discountNote && (
+        <div class="partner-discount-callout">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          {partner.discountNote}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container partner-two-col">
+      <div class="partner-content">
+        <h2>What you get with Total CSR.</h2>
+        <ul class="partner-points">
+          {partner.talkingPoints.map(point => (
+            <li>{point}</li>
+          ))}
+        </ul>
+
+        {partner.testimonial && (
+          <div class="partner-testimonial">
+            <TestimonialCard
+              quote={partner.testimonial.quote}
+              name={partner.testimonial.name}
+              title={partner.testimonial.title}
+              agency={partner.testimonial.agency}
+            />
+          </div>
+        )}
+      </div>
+
+      <div class="partner-form-wrapper">
+        <FormBase
+          formType="partner"
+          title={partner.ctaLabel}
+          subtitle="Fill in your details and we will be in touch."
+          ctaLabel={partner.ctaLabel}
+          partnerSlug={partner.slug}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="modules-heading">What the platform includes.</h2>
+      <p class="modules-sub">Seven integrated modules. One platform. Built exclusively for independent P&C agencies.</p>
+      <div class="module-pills">
+        {modules.map(m => (
+          <span class="module-pill">{m}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="See the platform in 30 minutes."
+    subtext="We will walk through every module. No pressure. Just the platform."
+    ctaLabel="Book a Demo"
+    ctaHref="/demo/"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .partner-hero {
+    background-color: var(--color-white);
+    padding: 100px 32px 80px;
+    margin-top: var(--nav-height);
+    border-bottom: 1px solid var(--color-gray-border);
+  }
+
+  .partner-hero-inner {
+    max-width: 800px;
+  }
+
+  .partner-eyebrow-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .partner-name-badge {
+    background: var(--color-navy-10);
+    color: var(--color-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  .partner-hero h1 {
+    color: var(--color-navy);
+    margin-bottom: 20px;
+  }
+
+  .partner-hero-sub {
+    font-size: 1.25rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 640px;
+  }
+
+  .partner-discount-callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-green-10);
+    color: var(--color-green-90);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-green-20);
+  }
+
+  .partner-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .partner-content h2 {
+    margin-bottom: 24px;
+  }
+
+  .partner-points {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .partner-points li {
+    font-size: 1.0625rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .partner-points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-green);
+    border-radius: 50%;
+  }
+
+  .partner-form-wrapper {
+    position: sticky;
+    top: calc(var(--nav-height) + 24px);
+  }
+
+  .modules-heading {
+    margin-bottom: 12px;
+  }
+
+  .modules-sub {
+    font-size: 1rem;
+    color: var(--color-gray-mid);
+    margin-bottom: 28px;
+  }
+
+  .module-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .module-pill {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-navy);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (max-width: 768px) {
+    .partner-hero {
+      padding: 80px 24px 60px;
+    }
+
+    .partner-two-col {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .partner-form-wrapper {
+      position: static;
+    }
+  }
+</style>

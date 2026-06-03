@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import FormBase from '../components/FormBase.astro';
+---
+
+<BaseLayout
+  title="Book a Demo | Total CSR"
+  description="See Total CSR in 30 minutes. We will walk through the full platform: Hire, Assess, Train, Retain, LicenseTraQ, CE, and Ask Ellie."
+>
+  <NavBar />
+
+  <section class="demo-hero">
+    <div class="container demo-inner">
+      <div class="demo-left">
+        <span class="eyebrow">Book a Demo</span>
+        <h1>See Total CSR in 30 minutes.</h1>
+        <p class="demo-sub">We will walk through the full platform — Hire, Assess, Train, Retain, LicenseTraQ, CE, and Ask Ellie. You will know exactly what it does and whether it fits your agency.</p>
+
+        <div class="trust-signals">
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>No pressure demo</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Built for P&C agencies</span>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>30 minutes, full platform walkthrough</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-right">
+        <FormBase
+          formType="demo"
+          title="Schedule your walkthrough"
+          subtitle="Fill out the form and we will reach out within one business day to schedule a time."
+          ctaLabel="Book a Demo"
+          redirectUrl="/thank-you/"
+        />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .demo-hero {
+    padding: 100px 32px 80px;
+    margin-top: var(--nav-height);
+    background: var(--color-white);
+    min-height: calc(100vh - var(--nav-height));
+  }
+
+  .demo-inner {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .demo-left h1 {
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .demo-sub {
+    font-size: 1.125rem;
+    color: var(--color-gray-dark);
+    line-height: 1.65;
+    margin-bottom: 40px;
+  }
+
+  .trust-signals {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-gray-dark);
+  }
+
+  .trust-item svg {
+    color: var(--color-green);
+    flex-shrink: 0;
+  }
+
+  .demo-right {
+    position: sticky;
+    top: calc(var(--nav-height) + 24px);
+  }
+
+  @media (max-width: 960px) {
+    .demo-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .demo-right {
+      position: static;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .demo-hero {
+      padding: 60px 24px 60px;
+    }
+  }
+</style>

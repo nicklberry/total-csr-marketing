@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+
+const relatedModules = [
+  { name: 'Assess', description: 'Apply the same assessment engine to your existing team. Find gaps before they surface in front of a client.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/assess/' },
+  { name: 'Train', description: 'Assessment results feed directly into training so you know exactly what each new hire needs on day one.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
+  { name: 'Retain', description: 'Keep coverage knowledge sharp long after onboarding ends. Five to eight minutes a day.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+];
+---
+
+<BaseLayout
+  title="Hire | Total CSR — Insurance Agency Applicant Tracking"
+  description="Hire the right people before you train them. Total CSR Hire gives agencies structured applicant tracking, compatibility assessments, and interview tools built for insurance."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Hire"
+    headline="Hire the right people before you train them."
+    subheadline="Hiring in insurance is too expensive to guess. Total CSR Hire gives you a structured, defensible process from application to offer."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="dark"
+  />
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <p class="lead">Hiring in insurance is too expensive to guess.</p>
+      <p>A bad hire does not just cost you salary. It costs time, morale, E&O exposure, and the rework that follows someone who was never the right fit. Most agencies know this. Most still rely on resumes, gut feel, and a rushed interview.</p>
+      <p>Total CSR Hire gives you a structured, defensible way to evaluate candidates before they ever touch a policy or a client, and flows directly into training so you know exactly what they need to learn on day one.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="What Hire actually does" align="left" />
+      <p>Hire is a built-in applicant tracking and assessment system designed specifically for independent insurance agencies. It answers the questions that matter most:</p>
+      <ul class="content-list">
+        <li>Can this person actually do the work?</li>
+        <li>Do they fit the role or just the resume?</li>
+        <li>Are they exaggerating their experience?</li>
+        <li>Where will they struggle before it costs you?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Build the job once. Use it every time." align="left" />
+      <p>Create a job posting from scratch, copy an existing one, or start from a pre-built template. Every template is fully editable to match how your agency actually operates. Set the standard once. Every candidate is measured against it.</p>
+      <p>ZipRecruiter integration is included at no additional cost. One-click apply links connect directly to Indeed and LinkedIn so you can reach candidates where they are looking.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader headline="Assessments built for insurance hiring" align="center" subtext="When someone applies, Hire automatically sends the assessments you selected for that role. No chasing. No spreadsheet trackers." />
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Personality Fit</h3>
+          <p>See how closely a candidate aligns with the specific role, not a generic profile. Understand what the score means, not just the number.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Cognitive Aptitude</h3>
+          <p>Measure general problem-solving ability and compare it directly to what the role requires.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Computer Literacy</h3>
+          <p>Timed, real-world tasks: BCCing emails, attaching documents, navigating systems. Not theoretical. Shows how fast they actually work.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Emotional Intelligence</h3>
+          <p>Evaluate how candidates perceive, anticipate, and manage emotions. Critical for client-facing roles and team dynamics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Interview smarter, not harder" align="left" />
+      <p>Hire generates custom interview questions based on each candidate's results. Scored below range? You get questions to explore why. Scored in range? You get questions to confirm it.</p>
+      <p>Candidates can't bluff their way past a structured interview built around their own results.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Put experience claims to the test" align="left" subtext="If a candidate says they have insurance experience, make them prove it." />
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Job Duties Assessment</h3>
+          <p>Test their ability to quote, propose, audit, issue certificates, and run the desk. Not self-reported. Measured.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Coverage Knowledge Assessment</h3>
+          <p>Test understanding of eligibility, exclusions, endorsements, and who is actually covered, line by line.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Built to flow directly into training" align="left" />
+      <p>Hire does not stop at yes or no. Assessment results feed directly into training recommendations so the moment you make an offer, you already know:</p>
+      <ul class="content-list">
+        <li>What they need to learn</li>
+        <li>What they can skip</li>
+        <li>Where mistakes are most likely to happen first</li>
+      </ul>
+      <p>No sink or swim. No starting from scratch on day one.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <h2>Who it's for</h2>
+      <p>Agencies tired of rehiring the same role. Leaders burned by bad experience hires. Managers who want consistency and documentation. Teams that want to stop training the wrong people.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader headline="Related modules" align="center" />
+      <div class="module-grid-3">
+        {relatedModules.map(m => <ModuleCard {...m} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Stop guessing and start knowing."
+    subtext="See how Hire works in a 30-minute walkthrough. No pressure. Just the platform."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .content-narrow {
+    max-width: 720px;
+  }
+
+  .content-narrow p {
+    font-size: 1.0625rem;
+    color: var(--color-gray-dark);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .lead {
+    font-size: 1.25rem !important;
+    font-weight: 500;
+    color: var(--color-navy) !important;
+    margin-bottom: 20px !important;
+  }
+
+  .content-list {
+    margin: 16px 0 20px 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .content-list li {
+    font-size: 1.0625rem;
+    color: var(--color-gray-dark);
+    line-height: 1.5;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius-card);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bg-gray .feature-card {
+    background: var(--color-white);
+  }
+
+  .feature-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 10px;
+    color: var(--color-navy);
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+  }
+
+  .feature-card p {
+    font-size: 0.9375rem;
+    color: var(--color-gray-dark);
+    line-height: 1.55;
+  }
+
+  .module-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .feature-grid,
+    .module-grid-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

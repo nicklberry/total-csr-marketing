@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import StatsBar from '../components/StatsBar.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+import FeatureRow from '../components/FeatureRow.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const modules = [
+  { name: 'Hire', description: 'Applicant tracking built for agencies. Post jobs, run compatibility tests, manage the interview workflow.', icon: 'user-plus', accentColor: 'green' as const, href: '/hire/' },
+  { name: 'Assess', description: 'Find skill gaps in your current staff before they cost you. No sink-or-swim required.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/assess/' },
+  { name: 'Train', description: 'Assign structured commercial and personal lines training. Track progress, exam scores, and time spent.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
+  { name: 'Retain', description: 'Five to eight minute daily microlearning that keeps coverage knowledge sharp. Mobile-friendly and confidence-tracked.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+  { name: 'LicenseTraQ', description: 'Track license renewals across every state. Automatic reminders at 30, 60, and 90 days.', icon: 'shield-check', accentColor: 'green' as const, href: '/licensetraq/' },
+  { name: 'CE', description: 'Continuing education approved in most states, tracked inside the same platform.', icon: 'graduation-cap', accentColor: 'navy' as const, href: '/ce/' },
+  { name: 'Ask Ellie', description: 'An AI assistant trained on insurance. Coverage questions, state-specific answers, plain-language explanations.', icon: 'message-circle', accentColor: 'green' as const, href: '/ask-ellie/' },
+];
+
+const stats = [
+  { value: '7', label: 'Integrated modules' },
+  { value: 'P&C', label: 'Built for independent agencies' },
+  { value: 'Commercial + Personal', label: 'Lines training' },
+  { value: 'CE', label: 'Approved in most states' },
+];
+
+const testimonials = [
+  { quote: '[PLACEHOLDER] Total CSR gave us a real system for the first time. We stopped guessing which CSRs were ready and started knowing.', name: '[PLACEHOLDER] Sarah M.', title: 'Operations Manager', agency: '[PLACEHOLDER] Midwest Insurance Group' },
+  { quote: '[PLACEHOLDER] The training is actually built for insurance. Not generic corporate content that nobody finishes. Our team uses it.', name: '[PLACEHOLDER] James T.', title: 'Agency Owner', agency: '[PLACEHOLDER] Coastal Coverage Partners' },
+  { quote: '[PLACEHOLDER] LicenseTraQ alone saved us from a renewal we would have missed. Worth every dollar just for that.', name: '[PLACEHOLDER] Maria R.', title: 'Training Manager', agency: '[PLACEHOLDER] Summit Independent Agency' },
+];
+---
+
+<BaseLayout
+  title="Total CSR | Training and Hiring Platform for Independent P&C Agencies"
+  description="Total CSR gives agency owners and operations managers a structured way to hire, train, and develop CSRs and producers. Built exclusively for independent P&C agencies."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Built for Independent P&C Agencies"
+    headline="Your agency runs on your people. Make sure they're ready."
+    subheadline="Total CSR gives agency owners and operations managers a structured way to hire, train, and develop CSRs and producers — without depending on whoever's free to show them the ropes."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    ctaSecondary={{ label: 'See the Platform', href: '/platform/' }}
+    variant="light"
+  />
+
+  <StatsBar stats={stats} />
+
+  <!-- Problem Statement -->
+  <section class="section bg-white">
+    <div class="container problem-inner">
+      <h2>Most agencies are still training by proximity.</h2>
+      <div class="problem-copy">
+        <p>New hires learn from whoever sits closest. Senior staff field the same questions daily. There is no standard. Just whoever has time.</p>
+        <p>When someone makes a mistake on a cert or misquotes coverage, it costs time, credibility, or worse. And it keeps happening because nothing changed.</p>
+        <p>Total CSR gives you a structured system for every stage of the employee lifecycle — from hiring the right person to making sure they actually know what they're doing three years in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module Grid -->
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader
+        headline="Everything your team needs. One platform."
+        subtext="Seven integrated modules that cover the full employee lifecycle — from hiring the right person to keeping experienced staff sharp."
+        align="center"
+      />
+      <div class="module-grid">
+        {modules.map(m => (
+          <ModuleCard {...m} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Row: Train -->
+  <FeatureRow
+    headline="Training they actually finish. Visibility you have never had."
+    copy="The Train module covers commercial lines, personal lines, and professional lines — with practical application, scenarios, and knowledge checks built in. Administrators can see exactly which courses were opened, which questions were missed, and how long each person spent learning. No more guessing who is ready."
+    reversed={false}
+    bgColor="white"
+    ctaLabel="See Train"
+    ctaHref="/train/"
+  />
+
+  <!-- Feature Row: Retain -->
+  <FeatureRow
+    headline="Coverage knowledge fades. Retain keeps it sharp."
+    copy="Retain is microlearning designed for staff who already have the basics. Five to eight minutes a day. A quick lesson, five questions, and a confidence rating. If someone is inaccurate or overconfident, they get a follow-up automatically. It keeps the knowledge active without pulling people out of the flow of work."
+    reversed={true}
+    bgColor="gray"
+    ctaLabel="See Retain"
+    ctaHref="/retain/"
+  />
+
+  <!-- Feature Row: Hire + Assess -->
+  <FeatureRow
+    headline="Know who you are hiring. Know what your team actually knows."
+    copy="Hire includes compatibility assessments, aptitude tests, computer skills evaluations, and emotional intelligence scoring — all before the first interview. Assess does the same thing for your existing staff, so you can identify gaps before they surface in front of a client."
+    reversed={false}
+    bgColor="white"
+    ctaLabel="See Hire"
+    ctaHref="/hire/"
+  />
+
+  <!-- Testimonials -->
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader headline="What agency owners are saying" align="center" />
+      <div class="testimonial-grid">
+        {testimonials.map(t => (
+          <TestimonialCard {...t} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Stop running your agency on assumptions about your people."
+    subtext="See how Total CSR works in a 30-minute walkthrough. No pressure. Just the platform."
+    ctaLabel="Book a Demo"
+    ctaHref="/demo/"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .problem-inner {
+    max-width: 800px;
+  }
+
+  .problem-inner h2 {
+    margin-bottom: 28px;
+  }
+
+  .problem-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .problem-copy p {
+    font-size: 1.0625rem;
+    color: var(--color-gray-dark);
+    line-height: 1.65;
+  }
+
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .module-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .module-grid,
+    .testimonial-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

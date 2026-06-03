@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+import { events } from '../../data/events';
+
+const activeEvents = events.filter(e => e.active);
+---
+
+<BaseLayout
+  title="Events | Total CSR"
+  description="Find Total CSR at industry events across the country. Connect with the team, see a live demo, and talk through what your agency needs."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Events"
+    headline="Find us at your next industry event."
+    subheadline="We show up where agency owners and ops managers are. Come see the platform in person."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="light"
+  />
+
+  <section class="section bg-gray">
+    <div class="container">
+      {activeEvents.length === 0 ? (
+        <p class="no-events">No upcoming events scheduled. Check back soon, or <a href="/demo/">book a virtual demo</a>.</p>
+      ) : (
+        <div class="events-grid">
+          {activeEvents.map(event => (
+            <a href={`/events/${event.slug}/`} class="event-card">
+              <div class="event-card-top">
+                <span class="event-eyebrow">{event.eyebrow}</span>
+                <h2 class="event-title">{event.headline}</h2>
+                <p class="event-sub">{event.subheadline}</p>
+              </div>
+              <div class="event-meta">
+                <span>{event.date}</span>
+                <span>{event.location}</span>
+                {event.boothNumber && <span>{event.boothNumber}</span>}
+              </div>
+              <span class="event-cta">{event.ctaLabel} &rarr;</span>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <CTABand
+    headline="Can't make it to an event?"
+    subtext="A virtual walkthrough works just as well. 30 minutes, full platform, no pressure."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .event-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius-card);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .event-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .event-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .event-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-green-90);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .event-title {
+    font-size: 1.375rem;
+    color: var(--color-navy);
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .event-sub {
+    font-size: 0.9375rem;
+    color: var(--color-gray-dark);
+    line-height: 1.55;
+  }
+
+  .event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 0.875rem;
+    color: var(--color-gray-mid);
+    font-weight: 500;
+  }
+
+  .event-cta {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-green-90);
+  }
+
+  .no-events {
+    font-size: 1rem;
+    color: var(--color-gray-dark);
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .no-events a {
+    color: var(--color-navy);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .events-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+export interface Props {
+  headline: string;
+  subtext?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const {
+  headline,
+  subtext,
+  ctaLabel = 'Book a Demo',
+  ctaHref = '/demo/',
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="container cta-band-inner">
+    <h2 class="cta-band-headline">{headline}</h2>
+    {subtext && <p class="cta-band-sub">{subtext}</p>}
+    <a href={ctaHref} class="btn btn-cta btn-lg">{ctaLabel}</a>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    background-color: var(--color-navy);
+    padding: 80px 32px;
+    text-align: center;
+  }
+
+  .cta-band-inner {
+    max-width: 720px;
+  }
+
+  .cta-band-headline {
+    color: var(--color-white);
+    margin-bottom: 16px;
+    font-size: 2.25rem;
+  }
+
+  .cta-band-sub {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .btn-cta {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-btn);
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.15s ease;
+  }
+
+  .btn-cta:hover {
+    background-color: var(--color-green-90);
+  }
+
+  @media (max-width: 768px) {
+    .cta-band {
+      padding: 60px 24px;
+    }
+
+    .cta-band-headline {
+      font-size: 1.75rem;
+    }
+  }
+</style>

@@ -310,3 +310,8 @@ p {
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
 }
+
+/* Background utilities */
+.bg-white { background-color: var(--color-white); }
+.bg-gray { background-color: var(--color-gray-light); }
+.bg-navy { background-color: var(--color-navy); }

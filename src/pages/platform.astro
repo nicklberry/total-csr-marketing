@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const modules = [
+  { name: 'Hire', description: 'Applicant tracking built for agencies. Post jobs, run compatibility tests, manage the interview workflow.', icon: 'user-plus', accentColor: 'green' as const, href: '/hire/' },
+  { name: 'Assess', description: 'Find skill gaps in your current staff before they cost you. No sink-or-swim required.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/assess/' },
+  { name: 'Train', description: 'Assign structured commercial and personal lines training. Track progress, exam scores, and time spent.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
+  { name: 'Retain', description: 'Five to eight minute daily microlearning that keeps coverage knowledge sharp. Mobile-friendly and confidence-tracked.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+  { name: 'LicenseTraQ', description: 'Track license renewals across every state. Automatic reminders at 30, 60, and 90 days.', icon: 'shield-check', accentColor: 'green' as const, href: '/licensetraq/' },
+  { name: 'CE', description: 'Continuing education approved in most states, tracked inside the same platform.', icon: 'graduation-cap', accentColor: 'navy' as const, href: '/ce/' },
+  { name: 'Ask Ellie', description: 'An AI assistant trained on insurance. Coverage questions, state-specific answers, plain-language explanations.', icon: 'message-circle', accentColor: 'green' as const, href: '/ask-ellie/' },
+];
+---
+
+<BaseLayout
+  title="Platform Overview | Total CSR"
+  description="Total CSR is a connected training and operations platform built specifically for independent P&C agencies. Hire, Assess, Train, Retain, LicenseTraQ, CE, and Ask Ellie."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="The Platform"
+    headline="Every tool your agency needs to hire smarter, train correctly, and reduce risk."
+    subheadline="One connected platform. Seven integrated modules. Built exclusively for independent P&C agencies."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="dark"
+  />
+
+  <!-- Intro -->
+  <section class="section bg-white">
+    <div class="container platform-intro">
+      <p>Most independent agencies are held together by institutional memory: tribal knowledge, YouTube playlists, and whoever happens to sit next to a new hire.</p>
+      <p>That works until it does not. Until the wrong person gets hired. Until a coverage gap slips through. Until a senior CSR is answering the same basic question for the third time this afternoon.</p>
+      <p>Total CSR is a connected training and operations platform built specifically for independent P&C agencies. It does not try to be everything. It solves the specific problems that cause turnover, E&O exposure, and inconsistent service.</p>
+    </div>
+  </section>
+
+  <!-- Module Grid -->
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader
+        headline="What the platform covers"
+        subtext="Each solution below works independently. Together, they create a complete system, from the first hiring decision to keeping experienced staff sharp years later."
+        align="center"
+      />
+      <div class="module-grid">
+        {modules.map(m => (
+          <ModuleCard {...m} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="section bg-white">
+    <div class="container platform-closing">
+      <h2>One platform. One system. No duct tape.</h2>
+      <p>No guessing who is ready. No retraining everyone on everything. No relying on whoever has time to explain it today.</p>
+      <p>If you want to see how it fits your agency, the next step is simple.</p>
+      <a href="/demo/" class="btn btn-primary btn-lg">Book a Demo</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .platform-intro {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .platform-intro p {
+    font-size: 1.0625rem;
+    color: var(--color-gray-dark);
+    line-height: 1.65;
+  }
+
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .platform-closing {
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .platform-closing p {
+    font-size: 1.0625rem;
+    color: var(--color-gray-dark);
+    line-height: 1.65;
+  }
+
+  .platform-closing .btn {
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 1024px) {
+    .module-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .module-grid { grid-template-columns: 1fr; }
+  }
+</style>

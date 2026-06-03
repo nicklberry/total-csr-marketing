@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+
+const relatedModules = [
+  { name: 'Train', description: 'Training builds the foundation. Ellie reinforces it with immediate answers in the moment of confusion.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
+  { name: 'Retain', description: 'Retain keeps knowledge sharp. Ellie answers the edge cases that come up between lessons.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+  { name: 'Assess', description: 'Assess identifies where gaps are. Ellie helps close them in real time.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/assess/' },
+];
+---
+
+<BaseLayout
+  title="Ask Ellie | Total CSR — AI Insurance Assistant"
+  description="Insurance answers when questions cannot wait. Ask Ellie is an AI assistant trained on insurance coverage, ISO forms, and real agency scenarios."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Ask Ellie"
+    headline="Insurance answers when questions cannot wait."
+    subheadline="Coverage questions don't arrive on a schedule. Ellie gives your team immediate, insurance-specific answers in plain language."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="dark"
+  />
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <p class="lead">Coverage questions do not arrive on a schedule. They show up mid-endorsement, mid-email, mid-client call.</p>
+      <p>Waiting on a manager to call back, digging through a manual, or guessing under pressure, that is how small questions turn into big mistakes. And in insurance, small mistakes are rarely small.</p>
+      <p>Ask Ellie gives your team immediate, insurance-specific answers in plain language, right when they need them most.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Ellie is built for insurance, not generic AI" align="left" />
+      <p>Ellie is not a chatbot searching the open web. She is trained on insurance concepts, coverage logic, ISO forms, and real agency scenarios.</p>
+      <p>She understands:</p>
+      <ul class="content-list">
+        <li>Policy language and exclusions</li>
+        <li>Coverage eligibility and real-world examples</li>
+        <li>State-specific rules and applications</li>
+        <li>How insurance workflows actually operate</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader headline="What teams use Ellie for" align="center" />
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Coverage Questions</h3>
+          <p>Ask in plain language the way people actually ask it. Ellie responds with plain-language explanations and practical examples, not paragraph citations from a manual.</p>
+        </div>
+        <div class="feature-card">
+          <h3>State-Specific Clarification</h3>
+          <p>Ellie applies state-specific guidance so teams are not defaulting to the wrong rule in the wrong state.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Desk Support</h3>
+          <p>Explaining coverage to clients. Drafting clear emails. Responding to frustrated customers. Translating policy language into something a client can understand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="A safety net for newer staff" align="left" />
+      <p>Ellie reduces interruptions without isolating learners. New hires get quick clarification without pulling a senior CSR away from their work.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="A second set of eyes for experienced staff" align="left" />
+      <p>Even seasoned professionals hit edge cases. Ellie helps validate thinking, explore scenarios, and sanity-check assumptions before something goes out the door.</p>
+      <p>One question to Ellie before sending is a lot cheaper than one E&O claim after.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Built to support learning, not replace it" align="left" />
+      <p>Ellie does not replace training. She reinforces it. Answers arrive in the moment of confusion, when the lesson actually sticks. She lives inside the Total CSR platform. No switching tools. No copying questions into a public AI platform.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader headline="Related modules" align="center" />
+      <div class="module-grid-3">
+        {relatedModules.map(m => <ModuleCard {...m} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Give your team answers they can act on."
+    subtext="See how Ask Ellie works in a 30-minute walkthrough. No pressure. Just the platform."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .content-narrow { max-width: 720px; }
+  .content-narrow p { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.65; margin-bottom: 16px; }
+  .lead { font-size: 1.25rem !important; font-weight: 500; color: var(--color-navy) !important; }
+  .content-list { margin: 16px 0 20px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .content-list li { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.5; }
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature-card { background: var(--color-white); border: 1px solid var(--color-gray-border); border-radius: var(--radius-card); padding: 28px; box-shadow: var(--shadow-sm); }
+  .feature-card h3 { font-size: 1.125rem; margin-bottom: 10px; color: var(--color-navy); font-family: 'Nexa Bold', 'Inter', sans-serif; }
+  .feature-card p { font-size: 0.9375rem; color: var(--color-gray-dark); line-height: 1.55; }
+  .module-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .feature-grid, .module-grid-3 { grid-template-columns: 1fr; } }
+</style>

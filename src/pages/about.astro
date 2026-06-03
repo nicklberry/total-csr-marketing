@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+---
+
+<BaseLayout
+  title="About | Total CSR"
+  description="Total CSR is the training and hiring platform built exclusively for independent P&C insurance agencies. Learn about our mission and approach."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="About Total CSR"
+    headline="Built by people who understand how agencies actually work."
+    subheadline="We built Total CSR because independent agencies deserve a real system, not another workaround."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="dark"
+  />
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Why Total CSR exists" align="left" />
+      <p>Independent P&C agencies have always operated on talent. The best agencies have the right people in the right seats, trained to do the job correctly, and supported to stay sharp over time.</p>
+      <p>Most agencies know that. Most still train by proximity, hire on gut feel, and track licenses in a spreadsheet. Not because they want to, but because there was nothing better built specifically for them.</p>
+      <p>Total CSR changes that. Every module, every assessment, every lesson, and every report in the platform was designed specifically for independent insurance agency operations — not adapted from a generic HR or LMS tool and called insurance-ready.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="What we are building toward" align="left" />
+      <p>The independent agency channel is strong. The agencies that will thrive over the next decade are the ones that invest in their people the same way they invest in their book of business: with structure, consistency, and accountability.</p>
+      <p>Total CSR is the system that makes that possible. From the first hiring decision to keeping experienced staff sharp years later, the platform covers every stage of the employee lifecycle.</p>
+      <p>No guessing. No duct tape. No relying on whoever has time to explain it today.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader headline="What the platform includes" align="center" subtext="Seven integrated modules covering the full employee lifecycle." />
+      <div class="modules-list">
+        {[
+          { name: 'Hire', desc: 'Applicant tracking and compatibility assessments built for insurance hiring.' },
+          { name: 'Assess', desc: 'Skills assessments for existing staff to identify gaps before they cost you.' },
+          { name: 'Train', desc: 'Structured commercial, professional, and personal lines training with full reporting.' },
+          { name: 'Retain', desc: 'Daily microlearning that keeps coverage knowledge sharp and measures confidence.' },
+          { name: 'LicenseTraQ', desc: 'Automated license tracking with reminders at 30, 60, and 90 days.' },
+          { name: 'CE', desc: 'Continuing education approved in most states, tracked inside the same platform.' },
+          { name: 'Ask Ellie', desc: 'An AI assistant trained on insurance that answers questions in plain language.' },
+        ].map(m => (
+          <div class="module-item">
+            <strong>{m.name}</strong>
+            <span>{m.desc}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="See the platform built for your agency."
+    subtext="A 30-minute walkthrough. No pressure. You will know exactly what Total CSR does and whether it fits."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .content-narrow { max-width: 720px; }
+  .content-narrow p { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.65; margin-bottom: 16px; }
+  .modules-list { display: flex; flex-direction: column; gap: 16px; max-width: 720px; margin: 0 auto; }
+  .module-item { display: flex; gap: 16px; padding: 20px 24px; background: var(--color-white); border: 1px solid var(--color-gray-border); border-radius: var(--radius-card); align-items: baseline; }
+  .module-item strong { font-size: 1rem; font-weight: 600; color: var(--color-navy); min-width: 120px; flex-shrink: 0; }
+  .module-item span { font-size: 0.9375rem; color: var(--color-gray-dark); line-height: 1.5; }
+  @media (max-width: 640px) { .module-item { flex-direction: column; gap: 6px; } .module-item strong { min-width: auto; } }
+</style>

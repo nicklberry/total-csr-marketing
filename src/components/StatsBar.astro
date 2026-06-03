@@ -1,0 +1,81 @@
+---
+export interface StatItem {
+  value: string;
+  label?: string;
+}
+
+export interface Props {
+  stats: StatItem[] | string[];
+}
+
+const { stats } = Astro.props;
+
+const normalizedStats = stats.map((s: StatItem | string) => {
+  if (typeof s === 'string') {
+    return { value: s, label: undefined };
+  }
+  return s;
+});
+---
+
+<section class="stats-bar">
+  <div class="container">
+    <ul class="stats-list">
+      {normalizedStats.map((stat) => (
+        <li class="stats-item">
+          <span class="stats-value">{stat.value}</span>
+          {stat.label && <span class="stats-label">{stat.label}</span>}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .stats-bar {
+    background-color: var(--color-gray-light);
+    border-top: 1px solid var(--color-gray-border);
+    border-bottom: 1px solid var(--color-gray-border);
+    padding: 28px 32px;
+  }
+
+  .stats-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 48px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stats-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .stats-value {
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+  }
+
+  .stats-label {
+    font-size: 0.8125rem;
+    color: var(--color-gray-mid);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .stats-bar {
+      padding: 24px;
+    }
+
+    .stats-list {
+      gap: 12px 32px;
+    }
+  }
+</style>

@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+
+const relatedModules = [
+  { name: 'Hire', description: 'Use the same assessment engine before the hire. Set the standard before someone joins the team.', icon: 'user-plus', accentColor: 'green' as const, href: '/hire/' },
+  { name: 'Train', description: 'Assessment results feed directly into training recommendations. Each person gets a path based on what they actually missed.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
+  { name: 'Retain', description: 'Keep knowledge sharp after gaps are closed. Daily microlearning that catches false confidence before it causes a mistake.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+];
+---
+
+<BaseLayout
+  title="Assess | Total CSR — Insurance Agency Skills Assessment"
+  description="Find out what your team actually knows. Total CSR Assess gives you an objective picture of skill gaps across your current staff without disrupting operations."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Assess"
+    headline="Find out what your team actually knows."
+    subheadline="Tenure is not the same as competence. Assess gives you a clear picture of where your current staff needs support."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="dark"
+  />
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <p class="lead">Tenure is not the same as competence.</p>
+      <p>Most agencies assume people are good at their jobs because they have been there for a long time. That is how coverage gaps, inconsistent workflows, and hidden E&O exposure creep in quietly, in small miscommunications and assumptions that no one catches until it is expensive.</p>
+      <p>Total CSR Assess gives you an objective picture of your current team without micromanaging, embarrassing anyone, or disrupting operations.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Assess is Hire applied to your existing staff" align="left" />
+      <p>It uses the same assessment engine as Hire, but for employees instead of applicants. Role fit, skill gaps, coverage understanding, and desk execution ability across your entire team.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Not a gotcha test" align="left" />
+      <p>Assess is designed to answer one question: where does each person need support to do their job correctly and with confidence?</p>
+      <p>No public scores. No performance theater. Just clear data that helps you coach better and train smarter.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader headline="What you can assess" align="center" />
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Role Compatibility</h3>
+          <p>Is this person actually aligned with the role they are in today? This often explains burnout, frustration, and turnover that otherwise looks mysterious.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Job Duties</h3>
+          <p>Test real desk skills: quoting, proposing, auditing, issuing certificates, policy checking. Not self-reported. Measured.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Coverage Knowledge</h3>
+          <p>Evaluate understanding of eligibility, exclusions, endorsements, and who is actually covered, by line of business, not just in general.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Find gaps before they turn into claims" align="left" />
+      <p>Assess shows you exactly where mistakes are most likely to happen. Instead of retraining everyone on everything, you can target specific lines, specific job duties, specific coverage concepts.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Automatic training recommendations" align="left" />
+      <p>Assessment results flow directly into training. Each employee gets a personalized path based on what they actually missed, not what you assume they need.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Use it once or build it into your culture" align="left" />
+      <ul class="content-list">
+        <li>After onboarding to validate readiness</li>
+        <li>Annually as a skills benchmark</li>
+        <li>Before promotions or role changes</li>
+        <li>After a mistake or near-miss</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="What managers see" align="left" />
+      <ul class="content-list">
+        <li>Who is confident and accurate</li>
+        <li>Who is overconfident</li>
+        <li>Where coaching will actually move the needle</li>
+      </ul>
+      <p>Better conversations. Fewer surprises. No guessing who needs help.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader headline="Related modules" align="center" />
+      <div class="module-grid-3">
+        {relatedModules.map(m => <ModuleCard {...m} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Know what your team actually knows."
+    subtext="See how Assess works in a 30-minute walkthrough. No pressure. Just the platform."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .content-narrow { max-width: 720px; }
+  .content-narrow p { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.65; margin-bottom: 16px; }
+  .lead { font-size: 1.25rem !important; font-weight: 500; color: var(--color-navy) !important; margin-bottom: 20px !important; }
+  .content-list { margin: 16px 0 20px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .content-list li { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.5; }
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature-card { background: var(--color-white); border: 1px solid var(--color-gray-border); border-radius: var(--radius-card); padding: 28px; box-shadow: var(--shadow-sm); }
+  .feature-card h3 { font-size: 1.125rem; margin-bottom: 10px; color: var(--color-navy); font-family: 'Nexa Bold', 'Inter', sans-serif; }
+  .feature-card p { font-size: 0.9375rem; color: var(--color-gray-dark); line-height: 1.55; }
+  .module-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .feature-grid, .module-grid-3 { grid-template-columns: 1fr; } }
+</style>

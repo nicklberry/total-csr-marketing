@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+
+const relatedModules = [
+  { name: 'CE', description: 'License renewals and CE credits tracked in the same platform. No switching tools to see the full picture.', icon: 'graduation-cap', accentColor: 'navy' as const, href: '/ce/' },
+  { name: 'Train', description: 'Training completion and licensing timelines visible in one reporting zone.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
+  { name: 'Retain', description: 'Keep coverage knowledge sharp between renewal cycles.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+];
+---
+
+<BaseLayout
+  title="LicenseTraQ | Total CSR — Insurance License Tracking"
+  description="Automated insurance license tracking for independent agencies. No spreadsheets. No last-minute panic. Automatic reminders at 30, 60, and 90 days before renewal."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="LicenseTraQ"
+    headline="Make licensing boring again."
+    subheadline="Licensing issues rarely fail loudly. They lapse quietly. LicenseTraQ makes sure nothing slips through."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="dark"
+  />
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <p class="lead">Licensing issues rarely fail loudly. They lapse quietly.</p>
+      <p>A missed renewal. An expired appointment. A state requirement that slipped through during a busy month. None of these announce themselves, they show up as fines, carrier issues, or E&O exposure well after the fact.</p>
+      <p>LicenseTraq gives your agency automated license tracking built specifically for insurance. No spreadsheets. No sticky notes. No last-minute panic.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Built for insurance agencies, not generic HR" align="left" />
+      <p>LicenseTraq understands resident and non-resident licenses, multi-state teams, appointments, and regulatory actions. No manual entry beyond the initial setup.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader headline="How LicenseTraq works" align="center" />
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Automatic License Monitoring</h3>
+          <p>Enter a team member's NPN and LicenseTraq pulls active license data across states, and keeps it current without you chasing updates.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Smart Renewal Reminders</h3>
+          <p>Automatic notifications at 30, 60, and 90 days before expiration. You decide who gets notified and when.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Appointment Visibility</h3>
+          <p>See appointment information tied to each license so nothing falls through the cracks during a renewal cycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Compliance without babysitting" align="left" />
+      <p>LicenseTraq removes the need to constantly remind people to renew or manually check status. The platform handles the tracking. You handle the agency.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Built for agencies with real complexity" align="left" />
+      <p>Individual licenses, multi-state teams, agency or entity licenses. LicenseTraq handles the complexity that comes with running a real independent agency, not a one-person shop.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Works hand in hand with CE" align="left" />
+      <p>LicenseTraq and Total CSR CE work together so licensing timelines stay visible while training and CE credits are being completed. Training, CE, and licensing in one system instead of three.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader headline="Related modules" align="center" />
+      <div class="module-grid-3">
+        {relatedModules.map(m => <ModuleCard {...m} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="License renewals should not be an emergency."
+    subtext="See how LicenseTraQ works in a 30-minute walkthrough. No pressure. Just the platform."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .content-narrow { max-width: 720px; }
+  .content-narrow p { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.65; margin-bottom: 16px; }
+  .lead { font-size: 1.25rem !important; font-weight: 500; color: var(--color-navy) !important; }
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature-card { background: var(--color-white); border: 1px solid var(--color-gray-border); border-radius: var(--radius-card); padding: 28px; box-shadow: var(--shadow-sm); }
+  .feature-card h3 { font-size: 1.125rem; margin-bottom: 10px; color: var(--color-navy); font-family: 'Nexa Bold', 'Inter', sans-serif; }
+  .feature-card p { font-size: 0.9375rem; color: var(--color-gray-dark); line-height: 1.55; }
+  .module-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .feature-grid, .module-grid-3 { grid-template-columns: 1fr; } }
+</style>

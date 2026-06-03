@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+
+const relatedModules = [
+  { name: 'Train', description: 'Build the foundation first. Retain keeps it active after training is complete.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
+  { name: 'Assess', description: 'Know exactly which topics need reinforcement before you assign Retain lessons.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/assess/' },
+  { name: 'Ask Ellie', description: 'When a Retain lesson raises a question, Ellie is there to answer it in plain language.', icon: 'message-circle', accentColor: 'green' as const, href: '/ask-ellie/' },
+];
+---
+
+<BaseLayout
+  title="Retain | Total CSR — Insurance Microlearning for Agencies"
+  description="Keep coverage knowledge sharp long after training ends. Retain delivers 5-8 minute daily microlearning that catches false confidence before it becomes a claim."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Retain"
+    headline="Keep coverage knowledge sharp long after training ends."
+    subheadline="Even good training fades. Retain catches false confidence before it becomes an E&O problem."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="dark"
+  />
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <p class="lead">Even good training fades. People forget details. Confidence drifts. Shortcuts creep in.</p>
+      <p>That is when E&O exposure shows up months later, in the wrong assumption made quickly because no one has reinforced the right one in a while.</p>
+      <p>Total CSR Retain is microlearning built specifically for insurance agencies. Short, focused, and designed to catch false confidence before it becomes a claim.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Five to eight minutes a day. That is it." align="left" />
+      <p>Retain delivers short lessons on single concepts, exclusions, endorsements, eligibility, coverage triggers. Mobile-friendly. No long lectures. No excuses.</p>
+      <p>It is not another training program. It is the system that makes training stick.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Built to fight false confidence" align="left" />
+      <p>False confidence is one of the biggest hidden risks in any agency. People think they know the coverage. Until they don't.</p>
+      <p>Retain measures not just accuracy, but confidence. That combination surfaces three kinds of people:</p>
+      <ul class="content-list">
+        <li>Who is solid: accurate and appropriately confident</li>
+        <li>Who needs reinforcement: uncertain and getting it wrong</li>
+        <li>Who is dangerous: confident and wrong</li>
+      </ul>
+      <p>That third group is the one you need to know about before something goes out the door.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader headline="How Retain works" align="center" />
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Zoomed-In Lessons</h3>
+          <p>Each lesson covers one concept, thoroughly. No fluff. Learners know exactly what they are learning and why it matters.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Quick Knowledge Checks</h3>
+          <p>Every lesson ends with a short quiz measuring both accuracy and confidence. The combination is what makes Retain work.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Smart Reinforcement</h3>
+          <p>If someone answers incorrectly or shows low or misplaced confidence, Retain brings that topic back in a different way days later, and keeps bringing it back until they are accurate and appropriately confident.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Built for participation, not nagging" align="left" />
+      <p>Light gamification. Learners earn points for participation and consistency. Points can be redeemed for prizes. Peers can re-engage teammates who fall off.</p>
+      <p>It keeps participation up without making it feel like a compliance requirement.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="What managers see" align="left" />
+      <p>Participation rates, accuracy by topic, confidence levels, overconfidence flags by person and subject. You can see exactly who is solid, who is shaky, and where to focus your coaching time.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Perfect for experienced staff" align="left" />
+      <p>Retain is not for brand-new hires. It is for the people who say they already know this: CSRs, account managers, producers who will not sit through a course.</p>
+      <p>If they really do know it, they will move quickly. If they don't, Retain will catch it.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader headline="Related modules" align="center" />
+      <div class="module-grid-3">
+        {relatedModules.map(m => <ModuleCard {...m} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Training that fades is just expensive forgetting."
+    subtext="See how Retain works in a 30-minute walkthrough. No pressure. Just the platform."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .content-narrow { max-width: 720px; }
+  .content-narrow p { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.65; margin-bottom: 16px; }
+  .lead { font-size: 1.25rem !important; font-weight: 500; color: var(--color-navy) !important; }
+  .content-list { margin: 16px 0 20px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .content-list li { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.5; }
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature-card { background: var(--color-white); border: 1px solid var(--color-gray-border); border-radius: var(--radius-card); padding: 28px; box-shadow: var(--shadow-sm); }
+  .feature-card h3 { font-size: 1.125rem; margin-bottom: 10px; color: var(--color-navy); font-family: 'Nexa Bold', 'Inter', sans-serif; }
+  .feature-card p { font-size: 0.9375rem; color: var(--color-gray-dark); line-height: 1.55; }
+  .module-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .feature-grid, .module-grid-3 { grid-template-columns: 1fr; } }
+</style>

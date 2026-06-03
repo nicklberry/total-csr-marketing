@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import CTABand from '../../components/CTABand.astro';
+import Footer from '../../components/Footer.astro';
+import { partners } from '../../data/partners';
+
+const activePartners = partners.filter(p => p.active);
+---
+
+<BaseLayout
+  title="Partners | Total CSR"
+  description="Total CSR partners with insurance associations, aggregators, and industry organizations to bring better training to their members. Find your partner page here."
+>
+  <NavBar />
+
+  <section class="partners-hero">
+    <div class="container partners-hero-inner">
+      <span class="eyebrow" style="color: var(--color-green);">Partner Programs</span>
+      <h1>Total CSR partner programs.</h1>
+      <p class="partners-hero-sub">We work with associations, aggregators, and industry organizations to make it easier for their members to access better training and hiring tools.</p>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      {activePartners.length > 0 ? (
+        <div class="partners-grid">
+          {activePartners.map(partner => (
+            <a href={`/partners/${partner.slug}/`} class="partner-card">
+              <div class="partner-card-header">
+                <span class="partner-type-badge">{partner.partnerType}</span>
+                <span class="partner-name">{partner.partnerName}</span>
+              </div>
+              <h3 class="partner-card-headline">{partner.headline}</h3>
+              <p class="partner-card-sub">{partner.subheadline}</p>
+              {partner.discountNote && (
+                <div class="partner-discount-badge">{partner.discountNote}</div>
+              )}
+              <span class="partner-card-cta">{partner.ctaLabel} &rarr;</span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="no-partners">Partner pages are being set up. Contact us directly for partnership information.</p>
+      )}
+    </div>
+  </section>
+
+  <section class="section section-gray">
+    <div class="container partners-become">
+      <h2>Interested in partnering with Total CSR?</h2>
+      <p>If you represent an insurance association, aggregator, or industry organization, we would be glad to talk about a partner program for your members.</p>
+      <a href="/demo/" class="btn btn-primary btn-lg" style="margin-top: 20px;">Get in touch</a>
+    </div>
+  </section>
+
+  <CTABand
+    headline="See the platform your members will be using."
+    subtext="Book a 30-minute walkthrough of the full Total CSR platform."
+    ctaLabel="Book a Demo"
+    ctaHref="/demo/"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .partners-hero {
+    background-color: var(--color-white);
+    padding: 100px 32px 80px;
+    margin-top: var(--nav-height);
+    border-bottom: 1px solid var(--color-gray-border);
+  }
+
+  .partners-hero-inner {
+    max-width: 720px;
+  }
+
+  .partners-hero .eyebrow {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .partners-hero h1 {
+    margin-bottom: 20px;
+  }
+
+  .partners-hero-sub {
+    font-size: 1.25rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .partner-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius-card);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .partner-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .partner-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .partner-type-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-navy-60);
+    background: var(--color-navy-10);
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+
+  .partner-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+
+  .partner-card-headline {
+    font-size: 1.25rem;
+    color: var(--color-navy);
+    line-height: 1.3;
+  }
+
+  .partner-card-sub {
+    font-size: 0.9375rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .partner-discount-badge {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--color-green-10);
+    color: var(--color-green-90);
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--color-green-20);
+  }
+
+  .partner-card-cta {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-green);
+    transition: color 0.15s ease;
+  }
+
+  .partner-card:hover .partner-card-cta {
+    color: var(--color-green-90);
+  }
+
+  .no-partners {
+    font-size: 1rem;
+    color: var(--color-gray-mid);
+  }
+
+  .partners-become {
+    max-width: 640px;
+  }
+
+  .partners-become h2 {
+    margin-bottom: 16px;
+  }
+
+  .partners-become p {
+    font-size: 1.0625rem;
+    color: var(--color-gray-dark);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .partners-hero {
+      padding: 80px 24px 60px;
+    }
+
+    .partners-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

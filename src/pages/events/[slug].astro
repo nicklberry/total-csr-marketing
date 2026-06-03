@@ -1,0 +1,256 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import FormBase from '../../components/FormBase.astro';
+import ModuleCard from '../../components/ModuleCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import Footer from '../../components/Footer.astro';
+import { events } from '../../data/events';
+import type { EventData } from '../../data/events';
+
+export async function getStaticPaths() {
+  return events
+    .filter(e => e.active)
+    .map(event => ({
+      params: { slug: event.slug },
+      props: { event },
+    }));
+}
+
+interface Props {
+  event: EventData;
+}
+
+const { event } = Astro.props;
+
+const featuredModules = [
+  { name: 'Hire', description: 'Applicant tracking and assessments built for insurance agencies.', icon: 'user-plus', accentColor: 'green' as const, href: '/hire/' },
+  { name: 'Train', description: 'Structured commercial and personal lines training with full visibility.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
+  { name: 'Retain', description: 'Daily microlearning that keeps coverage knowledge sharp.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+  { name: 'LicenseTraQ', description: 'Automatic license renewal tracking across all 50 states.', icon: 'shield-check', accentColor: 'green' as const, href: '/licensetraq/' },
+];
+---
+
+<BaseLayout title={event.metaTitle} description={event.metaDescription}>
+  <NavBar />
+
+  <section class="event-hero">
+    <div class="container event-hero-inner">
+      <span class="eyebrow eyebrow-white">{event.eyebrow}</span>
+      <h1>{event.headline}</h1>
+      <p class="event-hero-sub">{event.subheadline}</p>
+      <div class="event-meta-strip">
+        <span class="event-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          {event.date}
+        </span>
+        <span class="event-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {event.location}
+        </span>
+        {event.venueName && (
+          <span class="event-meta-item">{event.venueName}</span>
+        )}
+        {event.boothNumber && (
+          <span class="event-meta-badge">{event.boothNumber}</span>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container event-two-col">
+      <div class="event-content">
+        <h2>What we will cover.</h2>
+        <ul class="event-points">
+          {event.talkingPoints.map(point => (
+            <li>{point}</li>
+          ))}
+        </ul>
+
+        <div class="event-who">
+          <h3>Who should stop by.</h3>
+          <p>Agency owners, operations managers, and anyone responsible for hiring, training, or compliance at an independent P&C agency. If your team is dealing with training gaps, turnover, or licensing headaches, this is a 20-minute conversation worth having.</p>
+        </div>
+      </div>
+
+      <div class="event-form-wrapper">
+        <FormBase
+          formType="event"
+          title={event.ctaLabel}
+          subtitle="Fill in your details and we will confirm a time that works."
+          ctaLabel={event.ctaLabel}
+          eventSlug={event.slug}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="event-modules-heading">What we will show you.</h2>
+      <div class="event-modules-grid">
+        {featuredModules.map(m => (
+          <ModuleCard
+            name={m.name}
+            description={m.description}
+            icon={m.icon}
+            accentColor={m.accentColor}
+            href={m.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Want to learn more before the event?"
+    subtext="Take a look at the full platform. Every module, every feature."
+    ctaLabel="See the Platform"
+    ctaHref="/platform/"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .event-hero {
+    background-color: var(--color-navy);
+    padding: 100px 32px 80px;
+    margin-top: var(--nav-height);
+  }
+
+  .event-hero-inner {
+    max-width: 800px;
+  }
+
+  .event-hero .eyebrow {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .event-hero h1 {
+    color: var(--color-white);
+    margin-bottom: 20px;
+  }
+
+  .event-hero-sub {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 620px;
+  }
+
+  .event-meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .event-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .event-meta-badge {
+    background: var(--color-green);
+    color: var(--color-white);
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .event-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .event-content h2 {
+    margin-bottom: 24px;
+  }
+
+  .event-points {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .event-points li {
+    font-size: 1.0625rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .event-points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-green);
+    border-radius: 50%;
+  }
+
+  .event-who h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .event-who p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-gray-dark);
+  }
+
+  .event-form-wrapper {
+    position: sticky;
+    top: calc(var(--nav-height) + 24px);
+  }
+
+  .event-modules-heading {
+    margin-bottom: 32px;
+  }
+
+  .event-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    .event-modules-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .event-hero {
+      padding: 80px 24px 60px;
+    }
+
+    .event-two-col {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .event-form-wrapper {
+      position: static;
+    }
+
+    .event-modules-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

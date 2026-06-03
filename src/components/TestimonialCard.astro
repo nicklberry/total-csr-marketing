@@ -1,0 +1,68 @@
+---
+export interface Props {
+  quote: string;
+  name: string;
+  title: string;
+  agency: string;
+}
+
+const { quote, name, title, agency } = Astro.props;
+---
+
+<div class="testimonial-card">
+  <blockquote class="testimonial-quote">
+    <p>{quote}</p>
+  </blockquote>
+  <footer class="testimonial-footer">
+    <strong class="testimonial-name">{name}</strong>
+    <span class="testimonial-meta">{title}, {agency}</span>
+  </footer>
+</div>
+
+<style>
+  .testimonial-card {
+    background: var(--color-white);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-gray-border);
+    border-left: 4px solid var(--color-green);
+    padding: 28px 28px 28px 24px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .testimonial-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .testimonial-quote {
+    flex: 1;
+  }
+
+  .testimonial-quote p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-gray-dark);
+    font-style: italic;
+  }
+
+  .testimonial-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .testimonial-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    font-style: normal;
+  }
+
+  .testimonial-meta {
+    font-size: 0.875rem;
+    color: var(--color-gray-mid);
+  }
+</style>

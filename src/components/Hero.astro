@@ -1,0 +1,105 @@
+---
+export interface Props {
+  headline: string;
+  subheadline: string;
+  ctaPrimary: { label: string; href: string };
+  ctaSecondary?: { label: string; href: string };
+  eyebrow?: string;
+  variant?: 'dark' | 'light';
+}
+
+const {
+  headline,
+  subheadline,
+  ctaPrimary,
+  ctaSecondary,
+  eyebrow,
+  variant = 'light',
+} = Astro.props;
+---
+
+<section class={`hero hero-${variant}`}>
+  <div class="container hero-inner">
+    {eyebrow && <span class={`eyebrow ${variant === 'dark' ? 'eyebrow-white' : ''}`}>{eyebrow}</span>}
+    <h1 class="hero-headline">{headline}</h1>
+    <p class="hero-sub">{subheadline}</p>
+    <div class="hero-ctas">
+      <a href={ctaPrimary.href} class="btn btn-primary btn-lg">{ctaPrimary.label}</a>
+      {ctaSecondary && (
+        <a
+          href={ctaSecondary.href}
+          class={`btn btn-lg ${variant === 'dark' ? 'btn-secondary-white' : 'btn-secondary'}`}
+        >{ctaSecondary.label}</a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 120px 32px 100px;
+    margin-top: var(--nav-height);
+  }
+
+  .hero-dark {
+    background-color: var(--color-navy);
+  }
+
+  .hero-light {
+    background-color: var(--color-white);
+  }
+
+  .hero-inner {
+    max-width: 760px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .hero-headline {
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .hero-dark .hero-headline {
+    color: var(--color-white);
+  }
+
+  .hero-sub {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 620px;
+  }
+
+  .hero-dark .hero-sub {
+    color: rgba(255,255,255,0.82);
+  }
+
+  .hero-light .hero-sub {
+    color: var(--color-gray-dark);
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 80px 24px 64px;
+    }
+
+    .hero-sub {
+      font-size: 1.0625rem;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

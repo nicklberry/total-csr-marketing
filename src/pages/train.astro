@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+
+const relatedModules = [
+  { name: 'Assess', description: 'Know what each person needs before you assign a single course. No guessing, no one-size-fits-all.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/assess/' },
+  { name: 'Retain', description: 'Keep the knowledge active after training ends. Five to eight minutes a day keeps coverage sharp.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+  { name: 'CE', description: 'Most Train courses are CE-approved. Earn credit while building real skills.', icon: 'graduation-cap', accentColor: 'navy' as const, href: '/ce/' },
+];
+---
+
+<BaseLayout
+  title="Train | Total CSR — Insurance Agency Training Platform"
+  description="Train people once, correctly. Structured commercial, professional, and personal lines training with full manager visibility. Built for independent P&C agencies."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Train"
+    headline="Train people once. Correctly."
+    subheadline="Structured, insurance-specific training that teaches people how to do the job, not just what the terms mean."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="dark"
+  />
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <p class="lead">Most agency training lives in binders, shared drives, or someone's head.</p>
+      <p>It depends on who is available that day, how they learned it, and how busy things are. That is how inconsistent workflows, repeated mistakes, and quiet E&O exposure become part of the culture. Not because of bad intentions. There was never a real system.</p>
+      <p>Total CSR Train gives you structured, insurance-specific training that teaches people how to do the job, not just what the terms mean.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Built for real insurance work" align="left" />
+      <p>Train is not theory. It is practical application tied to what happens in an agency every single day.</p>
+      <ul class="content-list">
+        <li>Run the desk</li>
+        <li>Read and analyze policies</li>
+        <li>Issue certificates correctly</li>
+        <li>Review quotes and proposals</li>
+        <li>Catch inconsistencies before clients do</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Train by role, experience, and need" align="left" />
+      <p>You control what each person takes. Assign full programs for new hires, targeted courses based on Assess results, or individual lessons to close specific gaps.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader headline="How training actually works" align="center" />
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Self-paced, but not skippable</h3>
+          <p>Learners move sequentially. No clicking ahead. No checking boxes. Engagement is required.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Short, focused lessons</h3>
+          <p>Most lessons take 15 to 20 minutes and pick up where the learner left off. Training fits into real workdays without pulling people away for half a day.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Built-in reinforcement</h3>
+          <p>Terminology flashcards, knowledge checks, real scenarios, and chapter quizzes so information sticks instead of sitting in a slide deck.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader headline="Commercial lines training" align="center" />
+      <div class="feature-grid-2">
+        <div class="feature-card">
+          <h3>Round One: Running the Desk</h3>
+          <p>Loss runs, quotes and proposals, ACORD forms by line, policy checking, audits, claims basics, and E&O awareness. The foundation every CSR needs before they touch a client file.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Round Two: Coverage Mastery</h3>
+          <p>Deep, ISO-based coverage training. Every exclusion and endorsement explained with plain-English summaries, real-world examples, and policy language side by side.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="Professional and personal lines" align="left" />
+      <p>Professional lines: E&O, D&O, EPLI, Cyber, Pollution. Heavy coverage analysis with practical application for each line.</p>
+      <p>Personal lines: Homeowners, Auto, Dwelling, Umbrella, Flood, Earthquake. Structured the same way as commercial — no lighter treatment just because the policies are personal.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="ISO and ACORD done right" align="left" />
+      <p>Learners do not just read forms. They use them. Forms are broken down field by field, then applied in scenarios with strict accuracy requirements.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="CE without changing behavior is a waste" align="left" />
+      <p>Most Train courses are CE-approved. Learners earn credit while mastering skills they actually use. Completion tracked, time documented, filing handled.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Full visibility without micromanaging" align="left" />
+      <p>Managers see time spent, course progress, exam results, and missed questions by learner. You know exactly who is keeping up and exactly where gaps still exist, without having to ask.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader headline="Related modules" align="center" />
+      <div class="module-grid-3">
+        {relatedModules.map(m => <ModuleCard {...m} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Training that actually gets done. And sticks."
+    subtext="See how Train works in a 30-minute walkthrough. No pressure. Just the platform."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .content-narrow { max-width: 720px; }
+  .content-narrow p { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.65; margin-bottom: 16px; }
+  .lead { font-size: 1.25rem !important; font-weight: 500; color: var(--color-navy) !important; }
+  .content-list { margin: 16px 0 20px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .content-list li { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.5; }
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .feature-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 840px; margin: 0 auto; }
+  .feature-card { background: var(--color-white); border: 1px solid var(--color-gray-border); border-radius: var(--radius-card); padding: 28px; box-shadow: var(--shadow-sm); }
+  .feature-card h3 { font-size: 1.125rem; margin-bottom: 10px; color: var(--color-navy); font-family: 'Nexa Bold', 'Inter', sans-serif; }
+  .feature-card p { font-size: 0.9375rem; color: var(--color-gray-dark); line-height: 1.55; }
+  .module-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .feature-grid, .feature-grid-2, .module-grid-3 { grid-template-columns: 1fr; } }
+</style>

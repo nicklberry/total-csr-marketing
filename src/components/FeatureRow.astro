@@ -1,0 +1,104 @@
+---
+export interface Props {
+  headline: string;
+  copy: string;
+  reversed?: boolean;
+  bgColor?: 'white' | 'gray';
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const { headline, copy, reversed = false, bgColor = 'white', ctaLabel, ctaHref } = Astro.props;
+---
+
+<section class={`feature-row section-${bgColor}`}>
+  <div class="container">
+    <div class={`feature-row-inner ${reversed ? 'feature-row-reversed' : ''}`}>
+      <div class="feature-row-text">
+        <h3>{headline}</h3>
+        <p>{copy}</p>
+        {ctaLabel && ctaHref && (
+          <a href={ctaHref} class="btn btn-primary" style="margin-top: 24px;">{ctaLabel}</a>
+        )}
+      </div>
+      <div class="feature-row-visual">
+        <div class="feature-row-placeholder">
+          <span class="feature-row-placeholder-label">Visual placeholder</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-row {
+    padding: var(--section-padding);
+  }
+
+  .section-white {
+    background-color: var(--color-white);
+  }
+
+  .section-gray {
+    background-color: var(--color-gray-light);
+  }
+
+  .feature-row-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .feature-row-reversed {
+    direction: rtl;
+  }
+
+  .feature-row-reversed > * {
+    direction: ltr;
+  }
+
+  .feature-row-text h3 {
+    margin-bottom: 20px;
+  }
+
+  .feature-row-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-gray-dark);
+  }
+
+  .feature-row-placeholder {
+    background: var(--color-navy-10);
+    border-radius: var(--radius-card);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--color-navy-20);
+  }
+
+  .feature-row-placeholder-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-navy-60);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  @media (max-width: 768px) {
+    .feature-row {
+      padding: var(--section-padding-mobile);
+    }
+
+    .feature-row-inner {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      direction: ltr;
+    }
+
+    .feature-row-reversed > * {
+      direction: ltr;
+    }
+  }
+</style>

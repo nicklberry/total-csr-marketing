@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABand from '../components/CTABand.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+
+const relatedModules = [
+  { name: 'LicenseTraQ', description: 'Track CE completion and license renewals in one system. No switching tools.', icon: 'shield-check', accentColor: 'green' as const, href: '/licensetraq/' },
+  { name: 'Train', description: 'Most CE courses are part of the same training library. One platform for both.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
+  { name: 'Retain', description: 'CE earns the credit. Retain keeps the knowledge active after the course ends.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+];
+---
+
+<BaseLayout
+  title="CE | Total CSR — Continuing Education for Insurance Agencies"
+  description="CE that actually makes people better at their jobs. Insurance-first continuing education built for CSRs, producers, and agency leaders. Tracked inside the same platform."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="CE"
+    headline="CE that actually makes people better at their jobs."
+    subheadline="Most insurance CE is a checkbox. Total CSR CE is built to improve performance while earning the credit."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="dark"
+  />
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <p class="lead">Most insurance CE is a checkbox. Click through slides, answer obvious questions, forget it by Friday.</p>
+      <p>Total CSR CE is built differently. It is designed for CSRs, account managers, producers, and agency leaders who need CE anyway, and who deserve CE that improves performance, closes coverage gaps, and reduces E&O exposure while they earn the credit.</p>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader headline="What makes Total CSR CE different" align="center" />
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Insurance-First, Not Education Theater</h3>
+          <p>Every course is written by insurance professionals and built around real desk work. Not generic theory that could apply to any industry.</p>
+        </div>
+        <div class="feature-card">
+          <h3>ISO-Based and Coverage-Driven</h3>
+          <p>If the policy covers it, we cover it. Plain-English explanations, real-world examples, and policy language side by side.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Built for Retention, Not Cramming</h3>
+          <p>Sequential lessons, knowledge checks, real scenarios, and chapter quizzes with an 80% pass threshold. No skipping.</p>
+        </div>
+        <div class="feature-card">
+          <h3>CE Plus Proof</h3>
+          <p>Completion documented. Time spent tracked. Exam performance visible. A defensible training record if questions ever come up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader headline="What CE courses are included" align="center" />
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Ethics CE</h3>
+          <p>State-approved ethics courses built around real scenarios, decision-making, and compliance. Not just definitions.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Commercial Lines CE</h3>
+          <p>GL, Workers Comp, Commercial Auto, Property, Inland Marine, Excess and Umbrella, BOP. Round One and Round Two coverage.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Professional Lines CE</h3>
+          <p>E&O, D&O, EPLI, Cyber, Pollution. Heavy coverage analysis with practical application for each specialty line.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Personal Lines CE</h3>
+          <p>Homeowners, Auto, Dwelling, Umbrella, Flood, Earthquake. Same structured approach as commercial — no lighter treatment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container content-narrow">
+      <SectionHeader headline="How the CE experience works" align="left" />
+      <ol class="steps-list">
+        <li>Enroll in a CE-approved course</li>
+        <li>Complete interactive lessons, quizzes, and scenarios</li>
+        <li>Pass required exams with an 80% score</li>
+        <li>CE credit is filed on your behalf</li>
+      </ol>
+      <p class="note">State Department of Insurance fees are passed through at cost. A small processing fee applies.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container content-narrow">
+      <SectionHeader headline="Built for agencies, not just individuals" align="left" />
+      <ul class="content-list">
+        <li>Assign CE by role or experience level</li>
+        <li>Track progress and completion by learner</li>
+        <li>Tie CE directly to onboarding and ongoing training</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-gray">
+    <div class="container">
+      <SectionHeader headline="Related modules" align="center" />
+      <div class="module-grid-3">
+        {relatedModules.map(m => <ModuleCard {...m} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="CE that earns the credit and builds the skill."
+    subtext="See how CE works in a 30-minute walkthrough. No pressure. Just the platform."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .content-narrow { max-width: 720px; }
+  .content-narrow p { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.65; margin-bottom: 16px; }
+  .lead { font-size: 1.25rem !important; font-weight: 500; color: var(--color-navy) !important; }
+  .content-list { margin: 16px 0 20px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .content-list li { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.5; }
+  .steps-list { margin: 16px 0 20px 0; padding-left: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .steps-list li { font-size: 1.0625rem; color: var(--color-gray-dark); line-height: 1.5; }
+  .note { font-size: 0.9375rem !important; color: var(--color-gray-mid) !important; font-style: italic; }
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .feature-card { background: var(--color-white); border: 1px solid var(--color-gray-border); border-radius: var(--radius-card); padding: 28px; box-shadow: var(--shadow-sm); }
+  .feature-card h3 { font-size: 1.125rem; margin-bottom: 10px; color: var(--color-navy); font-family: 'Nexa Bold', 'Inter', sans-serif; }
+  .feature-card p { font-size: 0.9375rem; color: var(--color-gray-dark); line-height: 1.55; }
+  .module-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .feature-grid, .module-grid-3 { grid-template-columns: 1fr; } }
+</style>

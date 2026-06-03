@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const posts = [
+  {
+    title: 'Why Coverage Knowledge Fades (And What to Do About It)',
+    excerpt: 'Most agencies invest in training once and assume it sticks. It does not. Here is why coverage knowledge erodes over time and what a microlearning system actually fixes.',
+    date: 'May 2026',
+    category: 'Training',
+    slug: '#',
+    placeholder: true,
+  },
+  {
+    title: 'The Hidden Cost of a Bad Insurance Hire',
+    excerpt: 'Salary is the obvious number. The real cost shows up in rework, morale, E&O exposure, and the time it takes to restart the search. Here is how agencies calculate it wrong.',
+    date: 'April 2026',
+    category: 'Hiring',
+    slug: '#',
+    placeholder: true,
+  },
+  {
+    title: 'How to Set Up a Structured Onboarding System for CSRs',
+    excerpt: 'Most CSR onboarding is informal by default. Someone shows them the ropes, they shadow for a week, and then they are on their own. A structured system changes what happens after that.',
+    date: 'March 2026',
+    category: 'Operations',
+    slug: '#',
+    placeholder: true,
+  },
+];
+---
+
+<BaseLayout
+  title="Blog | Total CSR"
+  description="Practical content for independent P&C agency owners and operations managers on hiring, training, and developing insurance staff."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Blog"
+    headline="Practical content for agency owners and ops managers."
+    subheadline="No generic HR advice. Just what works for independent P&C agencies."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="light"
+  />
+
+  <section class="section bg-gray">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map(post => (
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="blog-category">{post.category}</span>
+              <span class="blog-date">{post.date}</span>
+            </div>
+            <h2 class="blog-title">
+              <a href={post.slug}>{post.title}</a>
+            </h2>
+            <p class="blog-excerpt">{post.excerpt}</p>
+            {post.placeholder && <p class="placeholder-note">[PLACEHOLDER — Article content coming soon]</p>}
+            <a href={post.slug} class="blog-read-more">Read more &rarr;</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Ready to build a real system for your agency?"
+    subtext="See how Total CSR works in a 30-minute walkthrough."
+    ctaLabel="Book a Demo"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .blog-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius-card);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .blog-category {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-green-90);
+    background: var(--color-green-10);
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .blog-date {
+    font-size: 0.8125rem;
+    color: var(--color-gray-mid);
+  }
+
+  .blog-title {
+    font-size: 1.25rem;
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .blog-title a {
+    color: var(--color-navy);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .blog-title a:hover {
+    color: var(--color-navy-60);
+  }
+
+  .blog-excerpt {
+    font-size: 0.9375rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .placeholder-note {
+    font-size: 0.8125rem;
+    color: var(--color-gray-mid);
+    font-style: italic;
+  }
+
+  .blog-read-more {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-green-90);
+    text-decoration: none;
+    margin-top: auto;
+  }
+
+  .blog-read-more:hover {
+    color: var(--color-navy);
+  }
+
+  @media (max-width: 1024px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+</style>
