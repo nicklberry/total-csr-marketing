@@ -1,0 +1,312 @@
+/* ============================================================
+   FONT IMPORTS
+   ============================================================ */
+@import url('https://fonts.cdnfonts.com/css/nexa-bold');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+  /* Brand Colors */
+  --color-green:        #71B544;
+  --color-green-90:     #64A23C;
+  --color-green-20:     #D8EDCA;
+  --color-green-10:     #EEF7E7;
+  --color-navy:         #0F3A5D;
+  --color-navy-80:      #0C3050;
+  --color-navy-60:      #1A5A8A;
+  --color-navy-20:      #C2D4E2;
+  --color-navy-10:      #EBF1F6;
+  --color-white:        #FFFFFF;
+  --color-black:        #231F20;
+  --color-gray-dark:    #40403F;
+  --color-gray-light:   #F8F8F8;
+  --color-gray-mid:     #8A8A89;
+  --color-gray-border:  #E2E2E1;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(15,58,93,0.08);
+  --shadow-md:  0 2px 6px rgba(15,58,93,0.10);
+  --shadow-lg:  0 4px 16px rgba(15,58,93,0.12);
+
+  /* Spacing */
+  --section-padding: 80px 32px;
+  --section-padding-mobile: 60px 24px;
+  --max-width: 1200px;
+  --nav-height: 68px;
+
+  /* Border radius */
+  --radius-card: 12px;
+  --radius-btn: 8px;
+}
+
+/* ============================================================
+   CSS RESET
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-gray-dark);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nexa Bold', 'Inter', -apple-system, sans-serif;
+  color: var(--color-navy);
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-gray-dark);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-btn);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.btn-primary {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border-color: var(--color-green);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-green-90);
+  border-color: var(--color-green-90);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.btn-secondary-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn-secondary-white:hover {
+  background-color: var(--color-white);
+  color: var(--color-navy);
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.section {
+  padding: var(--section-padding);
+}
+
+.section-white {
+  background-color: var(--color-white);
+}
+
+.section-gray {
+  background-color: var(--color-gray-light);
+}
+
+.section-navy {
+  background-color: var(--color-navy);
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.125rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .section {
+    padding: var(--section-padding-mobile);
+  }
+
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ============================================================
+   FORM ELEMENTS
+   ============================================================ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-dark);
+}
+
+.form-input {
+  padding: 10px 14px;
+  font-size: 0.9375rem;
+  border: 1.5px solid var(--color-gray-border);
+  border-radius: 6px;
+  background: var(--color-white);
+  color: var(--color-black);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(113, 181, 68, 0.12);
+}
+
+.form-input::placeholder {
+  color: var(--color-gray-mid);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238A8A89' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+/* ============================================================
+   EYEBROW / LABEL STYLES
+   ============================================================ */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-green);
+}
+
+.eyebrow-white {
+  color: rgba(255,255,255,0.8);
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-gray-border);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}

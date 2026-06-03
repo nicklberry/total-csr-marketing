@@ -1,0 +1,87 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import CTABand from '../components/CTABand.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  moduleName: string;
+  headline: string;
+  subheadline: string;
+  description: string;
+  title?: string;
+  metaDescription?: string;
+}
+
+const {
+  moduleName,
+  headline,
+  subheadline,
+  description,
+  title,
+  metaDescription,
+} = Astro.props;
+
+const pageTitle = title || `${moduleName} | Total CSR`;
+const pageDesc = metaDescription || description;
+---
+
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <NavBar />
+
+  <section class="module-hero">
+    <div class="container">
+      <span class="eyebrow eyebrow-white">{moduleName}</span>
+      <h1>{headline}</h1>
+      <p class="module-hero-sub">{subheadline}</p>
+    </div>
+  </section>
+
+  <slot />
+
+  <CTABand
+    headline="Ready to see how it works?"
+    subtext="Book a 30-minute walkthrough. We will show you the full platform and answer every question you have."
+    ctaLabel="Book a Demo"
+    ctaHref="/demo/"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .module-hero {
+    background-color: var(--color-navy);
+    padding: 100px 32px 80px;
+  }
+
+  .module-hero .container {
+    max-width: 800px;
+  }
+
+  .module-hero .eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .module-hero h1 {
+    color: var(--color-white);
+    margin-bottom: 20px;
+  }
+
+  .module-hero-sub {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 640px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .module-hero {
+      padding: 80px 24px 60px;
+    }
+
+    .module-hero-sub {
+      font-size: 1.0625rem;
+    }
+  }
+</style>

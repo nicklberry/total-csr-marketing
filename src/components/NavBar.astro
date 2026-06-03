@@ -1,0 +1,239 @@
+---
+const navLinks = [
+  { label: 'Platform', href: '/platform/' },
+  { label: 'Hire', href: '/hire/' },
+  { label: 'Train', href: '/train/' },
+  { label: 'Retain', href: '/retain/' },
+  { label: 'LicenseTraQ', href: '/licensetraq/' },
+  { label: 'CE', href: '/ce/' },
+  { label: 'Ask Ellie', href: '/ask-ellie/' },
+];
+---
+
+<nav class="navbar" id="main-nav">
+  <div class="navbar-inner">
+    <a href="/" class="navbar-logo" aria-label="Total CSR Home">
+      Total CSR
+    </a>
+
+    <ul class="navbar-links" id="navbar-links">
+      {navLinks.map(link => (
+        <li>
+          <a href={link.href} class="navbar-link">{link.label}</a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="navbar-right">
+      <a href="/demo/" class="btn btn-primary navbar-cta">Book a Demo</a>
+
+      <button class="navbar-hamburger" id="navbar-hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="navbar-mobile-menu" id="navbar-mobile-menu" aria-hidden="true">
+    <ul class="navbar-mobile-links">
+      {navLinks.map(link => (
+        <li>
+          <a href={link.href} class="navbar-mobile-link">{link.label}</a>
+        </li>
+      ))}
+      <li>
+        <a href="/demo/" class="btn btn-primary navbar-mobile-cta">Book a Demo</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: var(--color-white);
+    height: var(--nav-height);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .navbar.scrolled {
+    border-bottom: 1px solid var(--color-gray-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .navbar-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 32px;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .navbar-logo {
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    text-decoration: none;
+    flex-shrink: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .navbar-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-gray-dark);
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: color 0.15s ease, background-color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .navbar-link:hover {
+    color: var(--color-navy);
+    background-color: var(--color-navy-10);
+  }
+
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .navbar-cta {
+    padding: 9px 20px;
+    font-size: 0.875rem;
+  }
+
+  .navbar-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-navy);
+    padding: 4px;
+  }
+
+  .navbar-mobile-menu {
+    display: none;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-gray-border);
+    padding: 16px 24px 24px;
+  }
+
+  .navbar-mobile-menu.open {
+    display: block;
+  }
+
+  .navbar-mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .navbar-mobile-link {
+    display: block;
+    padding: 10px 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-gray-dark);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .navbar-mobile-link:hover {
+    background-color: var(--color-navy-10);
+    color: var(--color-navy);
+  }
+
+  .navbar-mobile-cta {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .navbar-links {
+      display: none;
+    }
+
+    .navbar-hamburger {
+      display: block;
+    }
+
+    .navbar {
+      height: auto;
+      min-height: var(--nav-height);
+    }
+
+    .navbar-inner {
+      height: var(--nav-height);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar-inner {
+      padding: 0 24px;
+    }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const hamburger = document.getElementById('navbar-hamburger');
+  const mobileMenu = document.getElementById('navbar-mobile-menu');
+  const iconMenu = hamburger?.querySelector('.icon-menu') as HTMLElement | null;
+  const iconClose = hamburger?.querySelector('.icon-close') as HTMLElement | null;
+
+  // Scroll behavior
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  // Mobile menu toggle
+  hamburger?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('open');
+    if (isOpen) {
+      mobileMenu?.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      mobileMenu?.setAttribute('aria-hidden', 'true');
+      if (iconMenu) iconMenu.style.display = '';
+      if (iconClose) iconClose.style.display = 'none';
+    } else {
+      mobileMenu?.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      mobileMenu?.setAttribute('aria-hidden', 'false');
+      if (iconMenu) iconMenu.style.display = 'none';
+      if (iconClose) iconClose.style.display = '';
+    }
+  });
+</script>

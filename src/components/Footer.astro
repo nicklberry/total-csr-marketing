@@ -1,0 +1,186 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Logo + Tagline -->
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">Total CSR</a>
+          <p class="footer-tagline">The training and hiring platform built exclusively for independent P&C agencies.</p>
+        </div>
+
+        <!-- Column 2: Platform Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="/platform/" class="footer-link">Platform Overview</a></li>
+            <li><a href="/hire/" class="footer-link">Hire</a></li>
+            <li><a href="/assess/" class="footer-link">Assess</a></li>
+            <li><a href="/train/" class="footer-link">Train</a></li>
+            <li><a href="/retain/" class="footer-link">Retain</a></li>
+            <li><a href="/licensetraq/" class="footer-link">LicenseTraQ</a></li>
+            <li><a href="/ce/" class="footer-link">CE</a></li>
+            <li><a href="/ask-ellie/" class="footer-link">Ask Ellie</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Company Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about/" class="footer-link">About</a></li>
+            <li><a href="/blog/" class="footer-link">Blog</a></li>
+            <li><a href="/events/" class="footer-link">Events</a></li>
+            <li><a href="/partners/" class="footer-link">Partners</a></li>
+            <li><a href="/demo/" class="footer-link">Book a Demo</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="/demo/" class="footer-link">Book a Demo</a></li>
+            <li><a href="mailto:info@totalcsr.com" class="footer-link">info@totalcsr.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">&copy; {currentYear} Total CSR. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="/privacy/" class="footer-legal-link">Privacy Policy</a>
+          <a href="/terms/" class="footer-legal-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-navy);
+  }
+
+  .footer-main {
+    padding: 64px 0 48px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+
+  .footer-logo {
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: var(--color-white);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .footer-tagline {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    max-width: 280px;
+  }
+
+  .footer-col-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-link {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .footer-link:hover {
+    color: var(--color-white);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 24px 0;
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-legal-link {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .footer-legal-link:hover {
+    color: rgba(255,255,255,0.8);
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+      grid-column: auto;
+    }
+
+    .footer-bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
