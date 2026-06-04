@@ -19,14 +19,14 @@ const activeEvents = events.filter(e => e.active);
     eyebrow="Events"
     headline="Find us at your next industry event."
     subheadline="We show up where agency owners and ops managers are. Come see the platform in person."
-    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    ctaPrimary={{ label: 'Book a Demo', href: '/book-a-demo/' }}
     variant="light"
   />
 
   <section class="section bg-gray">
     <div class="container">
       {activeEvents.length === 0 ? (
-        <p class="no-events">No upcoming events scheduled. Check back soon, or <a href="/demo/">book a virtual demo</a>.</p>
+        <p class="no-events">No upcoming events scheduled. Check back soon, or <a href="/book-a-demo/">book a virtual demo</a>.</p>
       ) : (
         <div class="events-grid">
           {activeEvents.map(event => (
