@@ -2,7 +2,7 @@
 
 This site already has the structure needed to move WordPress content into Astro content collections:
 
-- Blog posts render from `src/content/blog/*.md` at `/insurance-agency-blog/[slug]/`.
+- Blog posts render from `src/content/blog/*.md` at `/blog/[slug]/`.
 - Glossary entries render from `src/content/glossary/*.md` at `/insurance-glossary/[slug]/`.
 - The importer converts WordPress WXR XML exports into those Markdown files.
 
@@ -57,10 +57,10 @@ Only published items are imported. Drafts, revisions, attachments, and other pos
 
 The importer keeps the WordPress slug from `wp:post_name`, so URLs become:
 
-- WordPress blog post slug `example-post` → `/insurance-agency-blog/example-post/`
+- WordPress blog post slug `example-post` → `/blog/example-post/`
 - WordPress glossary slug `actual-cash-value` → `/insurance-glossary/actual-cash-value/`
 
-Before launch, compare these against the current WordPress URLs and add redirects for any URL whose path changes. If the old WordPress blog path was `/example-post/` or `/blog/example-post/`, redirect it to `/insurance-agency-blog/example-post/`. If the old glossary path was `/glossary/actual-cash-value/`, redirect it to `/insurance-glossary/actual-cash-value/`.
+Before launch, compare these against the current WordPress URLs and add redirects for any URL whose path changes. If the old WordPress blog path was `/example-post/` or `/blog/example-post`, redirect it to `/blog/example-post/`. If the old glossary path was `/glossary/actual-cash-value/`, redirect it to `/insurance-glossary/actual-cash-value/`.
 
 ## Post-import QA checklist
 
