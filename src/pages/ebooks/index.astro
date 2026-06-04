@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+---
+
+<BaseLayout
+  title="eBooks | Total CSR"
+  description="Downloadable guides and resources for independent P&C agency owners and operations leaders."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Resources"
+    headline="eBooks for independent insurance agencies."
+    subheadline="Guides and downloadable resources for hiring, training, retaining, and developing agency staff."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="light"
+  />
+
+  <section class="section bg-white">
+    <div class="container ebooks-content">
+      <div class="ebooks-card">
+        <span class="ebooks-kicker">Coming soon</span>
+        <h2>Downloadable agency resources are on the way.</h2>
+        <p>We are building practical guides for independent P&C agency owners and operations leaders. In the meantime, explore the blog or glossary for current resources.</p>
+        <div class="ebooks-actions">
+          <a href="/insurance-agency-blog/" class="btn btn-primary">Read the Blog</a>
+          <a href="/insurance-glossary/" class="btn btn-secondary">Browse the Glossary</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Want resources built around your agency's biggest challenge?"
+    subtext="Book a walkthrough and we will show you how Total CSR supports hiring, training, retention, compliance, and daily knowledge reinforcement."
+    ctaLabel="Book a Demo"
+    ctaHref="/demo/"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .ebooks-content {
+    max-width: 760px;
+  }
+
+  .ebooks-card {
+    background: var(--color-gray-light);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius-card);
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .ebooks-kicker {
+    display: inline-flex;
+    margin-bottom: 12px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-green-90);
+  }
+
+  .ebooks-card h2 {
+    margin-bottom: 16px;
+  }
+
+  .ebooks-card p {
+    font-size: 1.0625rem;
+    margin-bottom: 24px;
+  }
+
+  .ebooks-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .ebooks-card {
+      padding: 28px;
+    }
+
+    .ebooks-actions .btn {
+      width: 100%;
+    }
+  }
+</style>

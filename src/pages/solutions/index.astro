@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import NavBar from '../components/NavBar.astro';
-import Footer from '../components/Footer.astro';
-import Hero from '../components/Hero.astro';
-import ModuleCard from '../components/ModuleCard.astro';
-import CTABand from '../components/CTABand.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import ModuleCard from '../../components/ModuleCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const modules = [
   { name: 'Hire', description: 'Applicant tracking built for agencies. Post jobs, run compatibility tests, manage the interview workflow.', icon: 'user-plus', accentColor: 'green' as const, href: '/solutions/hiring-insurance-agents/' },
@@ -19,13 +19,13 @@ const modules = [
 ---
 
 <BaseLayout
-  title="Platform Overview | Total CSR"
+  title="Solution Overview | Total CSR"
   description="Total CSR is a connected training and operations platform built specifically for independent P&C agencies. Hire, Assess, Train, Retain, LicenseTraQ, CE, and Ask Ellie."
 >
   <NavBar />
 
   <Hero
-    eyebrow="The Platform"
+    eyebrow="The Solution"
     headline="Every tool your agency needs to hire smarter, train correctly, and reduce risk."
     subheadline="One connected platform. Seven integrated modules. Built exclusively for independent P&C agencies."
     ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
@@ -45,7 +45,7 @@ const modules = [
   <section class="section bg-gray">
     <div class="container">
       <SectionHeader
-        headline="What the platform covers"
+        headline="What the solution covers"
         subtext="Each solution below works independently. Together, they create a complete system, from the first hiring decision to keeping experienced staff sharp years later."
         align="center"
       />

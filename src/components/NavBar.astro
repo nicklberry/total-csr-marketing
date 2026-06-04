@@ -1,12 +1,24 @@
 ---
-const navLinks = [
-  { label: 'Platform', href: '/platform/' },
-  { label: 'Hire', href: '/solutions/hiring-insurance-agents/' },
-  { label: 'Train', href: '/solutions/insurance-agent-training/' },
-  { label: 'Retain', href: '/solutions/retain/' },
-  { label: 'LicenseTraQ', href: '/solutions/insurance-compliance-software/' },
-  { label: 'CE', href: '/solutions/ce-approved-states/' },
-  { label: 'Ask Ellie', href: '/solutions/ai-for-insurance-agents/' },
+const solutionLinks = [
+  { label: 'Solution Overview', href: '/solutions/', description: 'See how the full Total CSR system fits together.' },
+  { label: 'Hire', href: '/solutions/hiring-insurance-agents/', description: 'Assess applicants and manage agency hiring with more confidence.' },
+  { label: 'Assess', href: '/solutions/insurance-skills-assessment/', description: 'Find skill gaps across your existing team before they become client issues.' },
+  { label: 'Train', href: '/solutions/insurance-agent-training/', description: 'Structured P&C training for CSRs, producers, and agency staff.' },
+  { label: 'Retain', href: '/solutions/retain/', description: 'Daily microlearning that keeps coverage knowledge sharp.' },
+  { label: 'LicenseTraQ', href: '/solutions/insurance-compliance-software/', description: 'Track licenses, renewals, and reminders across states.' },
+  { label: 'CE', href: '/solutions/ce-approved-states/', description: 'Continuing education built for practical insurance knowledge.' },
+  { label: 'Ask Ellie', href: '/solutions/ai-for-insurance-agents/', description: 'Insurance-specific AI support for coverage questions and explanations.' },
+];
+
+const resourceLinks = [
+  { label: 'Blogs', href: '/insurance-agency-blog/', description: 'Practical articles for agency owners and operations leaders.' },
+  { label: 'Glossaries', href: '/insurance-glossary/', description: 'Plain-language definitions for insurance agency teams.' },
+  { label: 'eBooks', href: '/ebooks/', description: 'Guides and downloadable resources for agency growth.' },
+];
+
+const dropdownNav = [
+  { label: 'Solutions', href: '/solutions/', links: solutionLinks, wide: true },
+  { label: 'Resources', href: '/insurance-agency-blog/', links: resourceLinks, wide: false },
 ];
 ---
 
@@ -17,9 +29,24 @@ const navLinks = [
     </a>
 
     <ul class="navbar-links" id="navbar-links">
-      {navLinks.map(link => (
-        <li>
-          <a href={link.href} class="navbar-link">{link.label}</a>
+      {dropdownNav.map(section => (
+        <li class="navbar-dropdown">
+          <a href={section.href} class="navbar-link navbar-dropdown-trigger" aria-haspopup="true">
+            {section.label}
+            <svg class="navbar-chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </a>
+          <div class:list={["navbar-dropdown-panel", section.wide && "navbar-dropdown-panel--wide"]}>
+            <div class="navbar-dropdown-grid">
+              {section.links.map(link => (
+                <a href={link.href} class="navbar-dropdown-link">
+                  <span class="navbar-dropdown-label">{link.label}</span>
+                  <span class="navbar-dropdown-description">{link.description}</span>
+                </a>
+              ))}
+            </div>
+          </div>
         </li>
       ))}
     </ul>
@@ -42,16 +69,21 @@ const navLinks = [
   </div>
 
   <div class="navbar-mobile-menu" id="navbar-mobile-menu" aria-hidden="true">
-    <ul class="navbar-mobile-links">
-      {navLinks.map(link => (
-        <li>
-          <a href={link.href} class="navbar-mobile-link">{link.label}</a>
-        </li>
+    <div class="navbar-mobile-links">
+      {dropdownNav.map(section => (
+        <div class="navbar-mobile-section">
+          <a href={section.href} class="navbar-mobile-heading">{section.label}</a>
+          <ul class="navbar-mobile-subnav">
+            {section.links.map(link => (
+              <li>
+                <a href={link.href} class="navbar-mobile-link">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
       ))}
-      <li>
-        <a href="/demo/" class="btn btn-primary navbar-mobile-cta">Book a Demo</a>
-      </li>
-    </ul>
+      <a href="/demo/" class="btn btn-primary navbar-mobile-cta">Book a Demo</a>
+    </div>
   </div>
 </nav>
 
@@ -95,25 +127,119 @@ const navLinks = [
   .navbar-links {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
     flex: 1;
     justify-content: center;
   }
 
+  .navbar-dropdown {
+    position: relative;
+  }
+
   .navbar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-gray-dark);
-    padding: 6px 10px;
+    padding: 8px 12px;
     border-radius: 6px;
     text-decoration: none;
     transition: color 0.15s ease, background-color 0.15s ease;
     white-space: nowrap;
   }
 
-  .navbar-link:hover {
+  .navbar-link:hover,
+  .navbar-dropdown:focus-within .navbar-link,
+  .navbar-dropdown:hover .navbar-link {
     color: var(--color-navy);
     background-color: var(--color-navy-10);
+  }
+
+  .navbar-chevron {
+    transition: transform 0.15s ease;
+  }
+
+  .navbar-dropdown:hover .navbar-chevron,
+  .navbar-dropdown:focus-within .navbar-chevron {
+    transform: rotate(180deg);
+  }
+
+  .navbar-dropdown-panel {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    width: min(360px, calc(100vw - 48px));
+    padding: 14px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 8px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+  }
+
+  .navbar-dropdown-panel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -14px;
+    height: 14px;
+  }
+
+  .navbar-dropdown-panel--wide {
+    width: min(720px, calc(100vw - 48px));
+  }
+
+  .navbar-dropdown:hover .navbar-dropdown-panel,
+  .navbar-dropdown:focus-within .navbar-dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+
+  .navbar-dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .navbar-dropdown-panel:not(.navbar-dropdown-panel--wide) .navbar-dropdown-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-dropdown-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .navbar-dropdown-link:hover,
+  .navbar-dropdown-link:focus-visible {
+    background: var(--color-navy-10);
+    outline: none;
+  }
+
+  .navbar-dropdown-label {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+
+  .navbar-dropdown-description {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: var(--color-gray-dark);
   }
 
   .navbar-right {
@@ -142,6 +268,8 @@ const navLinks = [
     background: var(--color-white);
     border-top: 1px solid var(--color-gray-border);
     padding: 16px 24px 24px;
+    max-height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
   }
 
   .navbar-mobile-menu.open {
@@ -149,6 +277,28 @@ const navLinks = [
   }
 
   .navbar-mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .navbar-mobile-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .navbar-mobile-heading {
+    display: block;
+    padding: 4px 12px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+  }
+
+  .navbar-mobile-subnav {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -173,7 +323,7 @@ const navLinks = [
   .navbar-mobile-cta {
     display: block;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 4px;
     width: 100%;
   }
 
