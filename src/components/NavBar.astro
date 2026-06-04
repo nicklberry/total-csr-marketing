@@ -442,11 +442,20 @@ const resources = [
   }, { passive: true });
 
   // Desktop dropdowns
+  const closeTimers = new WeakMap<HTMLElement, ReturnType<typeof setTimeout>>();
+
   document.querySelectorAll<HTMLElement>('.nav-item.has-dropdown').forEach(item => {
     const trigger = item.querySelector<HTMLElement>('.dropdown-trigger');
 
-    item.addEventListener('mouseenter', () => open(item));
-    item.addEventListener('mouseleave', () => close(item));
+    item.addEventListener('mouseenter', () => {
+      const t = closeTimers.get(item);
+      if (t) { clearTimeout(t); closeTimers.delete(item); }
+      open(item);
+    });
+    item.addEventListener('mouseleave', () => {
+      const t = setTimeout(() => close(item), 150);
+      closeTimers.set(item, t);
+    });
 
     trigger?.addEventListener('click', e => {
       e.preventDefault();
@@ -466,6 +475,8 @@ const resources = [
   }
 
   function close(item: HTMLElement) {
+    const t = closeTimers.get(item);
+    if (t) { clearTimeout(t); closeTimers.delete(item); }
     item.classList.remove('open');
     item.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
   }
