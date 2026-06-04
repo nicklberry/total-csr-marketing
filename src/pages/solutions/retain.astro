@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import NavBar from '../components/NavBar.astro';
-import Footer from '../components/Footer.astro';
-import Hero from '../components/Hero.astro';
-import CTABand from '../components/CTABand.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import ModuleCard from '../components/ModuleCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ModuleCard from '../../components/ModuleCard.astro';
 
 const relatedModules = [
-  { name: 'Train', description: 'Build the foundation first. Retain keeps it active after training is complete.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
-  { name: 'Assess', description: 'Know exactly which topics need reinforcement before you assign Retain lessons.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/assess/' },
-  { name: 'Ask Ellie', description: 'When a Retain lesson raises a question, Ellie is there to answer it in plain language.', icon: 'message-circle', accentColor: 'green' as const, href: '/ask-ellie/' },
+  { name: 'Train', description: 'Build the foundation first. Retain keeps it active after training is complete.', icon: 'book-open', accentColor: 'green' as const, href: '/solutions/insurance-agent-training/' },
+  { name: 'Assess', description: 'Know exactly which topics need reinforcement before you assign Retain lessons.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/solutions/insurance-skills-assessment/' },
+  { name: 'Ask Ellie', description: 'When a Retain lesson raises a question, Ellie is there to answer it in plain language.', icon: 'message-circle', accentColor: 'green' as const, href: '/solutions/ai-for-insurance-agents/' },
 ];
 ---
 

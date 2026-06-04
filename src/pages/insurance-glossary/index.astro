@@ -1,0 +1,148 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const allEntries = await getCollection('glossary');
+
+// Sort alphabetically by title
+const entries = allEntries.sort((a, b) =>
+  a.data.title.localeCompare(b.data.title)
+);
+
+// Group by first letter
+const letters = [...new Set(entries.map(e => e.data.title[0].toUpperCase()))].sort();
+const grouped: Record<string, typeof entries> = {};
+for (const letter of letters) {
+  grouped[letter] = entries.filter(e => e.data.title[0].toUpperCase() === letter);
+}
+---
+
+<BaseLayout
+  title="Insurance Glossary | Total CSR"
+  description="Plain-language definitions of insurance terms for P&C agency staff. Built for CSRs and producers who need clear answers fast."
+>
+  <NavBar />
+
+  <Hero
+    eyebrow="Insurance Glossary"
+    headline="Know the terms. Serve clients better."
+    subheadline="Plain-language definitions of insurance terminology built for CSRs, producers, and agency staff."
+    ctaPrimary={{ label: 'Book a Demo', href: '/demo/' }}
+    variant="light"
+  />
+
+  <section class="section bg-gray">
+    <div class="container">
+      <nav class="alpha-nav" aria-label="Browse by letter">
+        {letters.map(letter => (
+          <a href={`#letter-${letter}`} class="alpha-link">{letter}</a>
+        ))}
+      </nav>
+
+      <div class="glossary-body">
+        {letters.map(letter => (
+          <div class="alpha-section" id={`letter-${letter}`}>
+            <h2 class="alpha-heading">{letter}</h2>
+            <ul class="term-list">
+              {grouped[letter].map(entry => (
+                <li>
+                  <a href={`/insurance-glossary/${entry.id}/`} class="term-link">
+                    {entry.data.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Train your team on the terms that matter."
+    subtext="Total CSR gives agency staff a structured way to learn insurance — not just definitions, but how to apply them."
+    ctaLabel="Book a Demo"
+    ctaHref="/demo/"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .alpha-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 48px;
+  }
+
+  .alpha-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .alpha-link:hover {
+    background: var(--color-navy);
+    color: var(--color-white);
+    border-color: var(--color-navy);
+  }
+
+  .glossary-body {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .alpha-heading {
+    font-size: 2rem;
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    color: var(--color-navy);
+    border-bottom: 2px solid var(--color-gray-border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+
+  .term-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 24px;
+  }
+
+  .term-link {
+    font-size: 0.9375rem;
+    color: var(--color-navy);
+    text-decoration: none;
+    line-height: 1.5;
+  }
+
+  .term-link:hover {
+    color: var(--color-green-90);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .term-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .term-list { grid-template-columns: 1fr; }
+  }
+</style>

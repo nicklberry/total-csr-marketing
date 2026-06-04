@@ -1,15 +1,30 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
 import CTABand from '../../components/CTABand.astro';
 
-const posts = [
+const allPosts = await getCollection('blog');
+
+// Sort newest first
+const realPosts = allPosts
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .map(post => ({
+    title:    post.data.title,
+    excerpt:  post.data.excerpt ?? '',
+    date:     new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }),
+    category: post.data.categories?.[0] ?? 'Insights',
+    slug:     `/blog/${post.id}/`,
+    placeholder: false,
+  }));
+
+const placeholderPosts = [
   {
     title: 'Why Coverage Knowledge Fades (And What to Do About It)',
     excerpt: 'Most agencies invest in training once and assume it sticks. It does not. Here is why coverage knowledge erodes over time and what a microlearning system actually fixes.',
-    date: 'May 2026',
+    date: 'Coming soon',
     category: 'Training',
     slug: '#',
     placeholder: true,
@@ -17,7 +32,7 @@ const posts = [
   {
     title: 'The Hidden Cost of a Bad Insurance Hire',
     excerpt: 'Salary is the obvious number. The real cost shows up in rework, morale, E&O exposure, and the time it takes to restart the search. Here is how agencies calculate it wrong.',
-    date: 'April 2026',
+    date: 'Coming soon',
     category: 'Hiring',
     slug: '#',
     placeholder: true,
@@ -25,12 +40,14 @@ const posts = [
   {
     title: 'How to Set Up a Structured Onboarding System for CSRs',
     excerpt: 'Most CSR onboarding is informal by default. Someone shows them the ropes, they shadow for a week, and then they are on their own. A structured system changes what happens after that.',
-    date: 'March 2026',
+    date: 'Coming soon',
     category: 'Operations',
     slug: '#',
     placeholder: true,
   },
 ];
+
+const posts = realPosts.length > 0 ? realPosts : placeholderPosts;
 ---
 
 <BaseLayout
@@ -59,9 +76,10 @@ const posts = [
             <h2 class="blog-title">
               <a href={post.slug}>{post.title}</a>
             </h2>
-            <p class="blog-excerpt">{post.excerpt}</p>
-            {post.placeholder && <p class="placeholder-note">[PLACEHOLDER — Article content coming soon]</p>}
-            <a href={post.slug} class="blog-read-more">Read more &rarr;</a>
+            {post.excerpt && <p class="blog-excerpt">{post.excerpt}</p>}
+            {!post.placeholder && (
+              <a href={post.slug} class="blog-read-more">Read more &rarr;</a>
+            )}
           </article>
         ))}
       </div>
@@ -72,6 +90,7 @@ const posts = [
     headline="Ready to build a real system for your agency?"
     subtext="See how Total CSR works in a 30-minute walkthrough."
     ctaLabel="Book a Demo"
+    ctaHref="/demo/"
   />
 
   <Footer />
@@ -141,12 +160,6 @@ const posts = [
     color: var(--color-gray-dark);
     line-height: 1.6;
     flex: 1;
-  }
-
-  .placeholder-note {
-    font-size: 0.8125rem;
-    color: var(--color-gray-mid);
-    font-style: italic;
   }
 
   .blog-read-more {

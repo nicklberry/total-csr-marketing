@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import NavBar from '../components/NavBar.astro';
-import Footer from '../components/Footer.astro';
-import Hero from '../components/Hero.astro';
-import CTABand from '../components/CTABand.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import ModuleCard from '../components/ModuleCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABand from '../../components/CTABand.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ModuleCard from '../../components/ModuleCard.astro';
 
 const relatedModules = [
-  { name: 'Assess', description: 'Apply the same assessment engine to your existing team. Find gaps before they surface in front of a client.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/assess/' },
-  { name: 'Train', description: 'Assessment results feed directly into training so you know exactly what each new hire needs on day one.', icon: 'book-open', accentColor: 'green' as const, href: '/train/' },
-  { name: 'Retain', description: 'Keep coverage knowledge sharp long after onboarding ends. Five to eight minutes a day.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/retain/' },
+  { name: 'Assess', description: 'Apply the same assessment engine to your existing team. Find gaps before they surface in front of a client.', icon: 'clipboard-check', accentColor: 'navy' as const, href: '/solutions/insurance-skills-assessment/' },
+  { name: 'Train', description: 'Assessment results feed directly into training so you know exactly what each new hire needs on day one.', icon: 'book-open', accentColor: 'green' as const, href: '/solutions/insurance-agent-training/' },
+  { name: 'Retain', description: 'Keep coverage knowledge sharp long after onboarding ends. Five to eight minutes a day.', icon: 'refresh-cw', accentColor: 'navy' as const, href: '/solutions/retain/' },
 ];
 ---
 
