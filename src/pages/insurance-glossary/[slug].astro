@@ -1,0 +1,248 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import CTABand from '../../components/CTABand.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('glossary');
+  return entries.map(entry => ({
+    params: { slug: entry.slug },
+    props:  { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const formattedDate = new Date(entry.data.date).toLocaleDateString('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${entry.data.title} | Insurance Glossary | Total CSR`}
+  description={`Plain-language definition of ${entry.data.title} for insurance agency staff.`}
+>
+  <NavBar />
+
+  <div class="glossary-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/insurance-glossary/">Glossary</a>
+        <span aria-hidden="true">›</span>
+        <span>{entry.data.title}</span>
+      </nav>
+      <h1 class="glossary-term">{entry.data.title}</h1>
+      <p class="glossary-meta">Updated {formattedDate}</p>
+    </div>
+  </div>
+
+  <section class="section bg-white">
+    <div class="container">
+      <div class="glossary-layout">
+        <article class="glossary-content prose">
+          <Content />
+        </article>
+
+        <aside class="glossary-sidebar">
+          <div class="sidebar-card">
+            <h3>Train your team on terms like this</h3>
+            <p>Total CSR gives agency staff daily microlearning that keeps coverage knowledge sharp — including the terms that come up in real client conversations.</p>
+            <a href="/demo/" class="btn-primary">Book a Demo</a>
+          </div>
+          <div class="sidebar-card sidebar-card--light">
+            <h3>Browse the full glossary</h3>
+            <a href="/insurance-glossary/" class="sidebar-link">← Back to all terms</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Coverage knowledge your team can actually use."
+    subtext="Total CSR trains insurance agency staff on the concepts behind the terminology — so they can explain it to clients, not just recite it."
+    ctaLabel="Book a Demo"
+    ctaHref="/demo/"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .glossary-hero {
+    background: var(--color-navy);
+    color: var(--color-white);
+    padding: 48px 0 40px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 16px;
+  }
+
+  .breadcrumb a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover { color: var(--color-white); }
+
+  .glossary-term {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    color: var(--color-white);
+    margin: 0 0 12px;
+  }
+
+  .glossary-meta {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+  }
+
+  .glossary-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* Prose styles for WP HTML content */
+  .prose :global(h2) {
+    font-size: 1.375rem;
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    color: var(--color-navy);
+    margin: 2rem 0 0.75rem;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.125rem;
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    color: var(--color-navy);
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .prose :global(p) {
+    font-size: 1rem;
+    color: var(--color-gray-dark);
+    line-height: 1.7;
+    margin: 0 0 1rem;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.5rem;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .prose :global(li) {
+    font-size: 1rem;
+    color: var(--color-gray-dark);
+    line-height: 1.65;
+  }
+
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9375rem;
+  }
+
+  .prose :global(td),
+  .prose :global(th) {
+    border: 1px solid var(--color-gray-border);
+    padding: 10px 14px;
+    color: var(--color-gray-dark);
+    vertical-align: top;
+  }
+
+  .prose :global(tr:first-child td) {
+    background: var(--color-gray);
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+
+  .prose :global(strong),
+  .prose :global(b) {
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+
+  /* Sidebar */
+  .glossary-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 24px;
+  }
+
+  .sidebar-card {
+    background: var(--color-navy);
+    color: var(--color-white);
+    border-radius: var(--radius-card);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sidebar-card--light {
+    background: var(--color-gray);
+    color: var(--color-navy);
+  }
+
+  .sidebar-card h3 {
+    font-size: 1.0625rem;
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    margin: 0;
+  }
+
+  .sidebar-card p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--color-green-90);
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.88; }
+
+  .sidebar-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    text-decoration: none;
+  }
+
+  .sidebar-link:hover { color: var(--color-green-90); }
+
+  @media (max-width: 900px) {
+    .glossary-layout {
+      grid-template-columns: 1fr;
+    }
+    .glossary-sidebar { position: static; }
+  }
+</style>
