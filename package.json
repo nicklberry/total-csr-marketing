@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "import:wp": "node scripts/import-wp-xml.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
