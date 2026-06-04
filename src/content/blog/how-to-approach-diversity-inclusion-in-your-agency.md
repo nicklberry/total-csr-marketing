@@ -1,0 +1,26 @@
+---
+title: "How To Approach Diversity & Inclusion in Your Agency"
+date: "2020-08-11"
+lastModified: "2025-03-25"
+author: "trenton"
+categories:
+  - "Agency Owner Articles"
+  - "Helpful Tips: For Leadership"
+---
+
+<p><!-- wp:paragraph --></p>
+<p>The insurance industry has been characterized in many less than complimentary ways over its time in existence. &nbsp;Sayings like "stale, pale and male" and "Good Old Boys Club" are descriptions that have influenced opinions within the industry as well as the perception of those outside the industry. &nbsp;The truth is it is an industry that has struggled with diversity and inclusion for a long time. &nbsp;Even as that tide has started to shift, there is still work required to shift mindsets inside and outside insurance. &nbsp;</p>
+<p>While this can be a complicated topic that generates a lot of opinions and emotions, it is essential to be part of a movement that promotes a more diverse and inclusive industry.</p>
+<h2><strong>1.) Be informed –</strong></h2>
+<p>Agency leaders must make sure they are looking at the diversity issues within their own organizations and the industry. &nbsp;Ignoring diversity issues will negatively impact an agency in the future if it has not already. &nbsp;Not only is it a relevant issue that needs attention for it to improve, but it is also an essential part of the industry's future success. &nbsp;The next generation of employees looking at the insurance industry as a future career opportunity also seeks workplaces that represent more diversity. &nbsp;&nbsp;</p>
+<p>While there are no overnight solutions for diversity issues, it is still essential to start by gaining an understanding of what role you and your agency play in taking steps towards improvement. &nbsp;Enlist a professional if needed. &nbsp; A Diversity and Inclusion expert can help leaders and employees better understand and navigate D&I issues, identify their own biases, and provide tools for moving past those biases in a more positive direction. &nbsp;Being informed and taking appropriate action is not just one person's job, but it does start with leadership willing to take the first step.</p>
+<h2><strong>2.) Look for and promote diversity –</strong></h2>
+<p>Building a more diverse workforce can take more time and requires intention on behalf of the employer. Diversity within the insurance industry is a serious issue, and only paying it lip service by saying you and the agency support efforts to improve it no longer works. &nbsp;Taking action by hiring and promoting employees representing different cultures and lifestyles is needed to move the needle forward on this issue effectively. &nbsp;Ensuring that employees receive fair and equitable treatment is critical.</p>
+<p>For example, not taking an idea seriously from a female but then immediately applauding the same information from a male employee leads to the continued marginalization of women. &nbsp; Promoting qualified leaders of diverse backgrounds and giving those leaders an equal seat at the table helps make sure that all voices are represented and heard.</p>
+<h2><strong>3.) Don't run from tough conversations -&nbsp;</strong></h2>
+<p>Diversity and inclusion is a weighty topic that can be very challenging to discuss. However, ignoring it will not make it go away. &nbsp;Improvement starts with open dialogue. &nbsp;If you are not a minority, you may feel ill-equipped to be part of the conversation, but the truth is, admitting that it isn't your first-hand experience, but you want to do what you can to help is a substantial first step. &nbsp;Creating a forum where employees feel safe sharing their questions and concerns is an equally important part of the equation.</p>
+<p>Bringing in experts who can answer questions, provide feedback, and help employees tackle serious issues allows everyone an opportunity to learn and grow.&nbsp;Ignoring or minimizing the issues the insurance industry faces when it comes to diversity and inclusion is a disservice to current employees and the next generation coming into this industry. &nbsp;While diversity and inclusion can be a heavy topic that is difficult to tackle, doing your part to help reshape attitudes is critical to the insurance industry's continued growth. &nbsp;</p>
+<p>For more on this topic, check out the entire episode of&nbsp;The Independent Agent <a style="color: #0000ff; font-weight: 500;" href="https://totalcsr.com/resource-center/racial-challenges-for-producers-in-the-21st-century-its-still-an-issue/">here</a>.</p>
+<h2><strong>About the Author</strong></h2>
+<p>Justin Goodman has spent the past 20 years in insurance. He is the co-founder and CEO of Total CSR and co-founder and Managing Director of Project 55. By the age of 29, he was recognized as one of the top five construction insurance experts nationwide by Risk and Insurance Magazine. He also was named to Insurance Business Magazine's Hot 100 and most recently the 2024 Insurance Journal Agent of the Year. Justin has trained over 50,000 CSR's, account managers and producers through his work at Total CSR. He has a passion for developing the next generation of insurance professionals. When not with his family, he devotes his free time to speaking engagements and advising agency owners across the country.</p>
+<p><!-- /wp:paragraph --></p>
