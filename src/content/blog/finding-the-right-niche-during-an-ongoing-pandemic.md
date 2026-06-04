@@ -1,0 +1,25 @@
+---
+title: "Finding the Right Niche During an Ongoing Pandemic"
+date: "2020-11-17"
+lastModified: "2025-04-02"
+author: "trenton"
+categories:
+  - "Agency Staff Articles"
+  - "Helpful Tips: For Employees"
+---
+
+<p>As the pandemic persists, every community imaginable has felt the impact in some way.  Restrictions have crippled different industries to varying degrees.  Some businesses had to limit foot traffic while others had to shut their doors temporarily.  And while safety remains the primary concern, the pandemic has unquestionably, negatively impacted the economy.</p>
+<p>While some businesses have had to close permanently, some have found success within the pandemic's challenges.  Here are some niches producers may find thriving amidst the chaos.</p>
+<p><strong>Technology Companies –</strong></p>
+<p>There is no denying that technology has been one of the most desired commodities during this pandemic.  Everything from internet providers, and communication tools, to streaming services and online entertainment, has been in high demand from day one. Technology has become a critical part of both our professional lives and personal well-being.  While you may have been an occasional Zoom user in January 2020, it became a primary human connection source during the pandemic, from work meetings to birthday parties, the Zoom boom has demonstrated technology's rise to dominance in this pandemic.</p>
+<p>Many other technology companies are also growing by leaps and bounds as a result of this pandemic.  We are dependent on it to run businesses and stay connected to friends and family.  Technology firms that can continue to serve their community's needs and evolve with changing demands will be a great win and resource for insurance agents and producers.</p>
+<p><strong>Businesses Ready to Shift –</strong></p>
+<p>Flexibility has been the name of the game throughout the pandemic.  The ability to pivot operations has been the difference between success and failure for many businesses.  We saw this with restaurants that were traditionally dependent on in-house service pivoting to offer curbside pickup and contactless delivery options.  Mattress manufacturers started making personal protective equipment.  Other assembly-line-driven businesses shifted to making respirators for hospitals.</p>
+<p>While the ability to pivot is not an option for all businesses, business owners and leaders willing to get a little creative and look for opportunities to switch things up have found it.  While their income stream may not match what it was before the pandemic, the ability to pivot has allowed them to stay in operation and keep their employees working.  These types of businesses have found ways to navigate the challenges of the pandemic and will now be prepared for future economic disruptions.</p>
+<p><strong>Industries Experiencing a Downturn - </strong></p>
+<p>Counterintuitive as it may sound, industries that have been hit hard during this pandemic can pay dividends in the long run.  Jump in while rates and premiums are lower, service them, and be prepared to reap the benefits of a rebound.  It may feel like a losing game for a while but look at it as an investment in that industry's comeback and growth.  Simply being responsive, providing support, and being the advisor they need without focusing on the commission you can earn will quickly set you apart from the competition and foster life-long <a href="https://totalcsr.com/insurance-agency-blog/three-driving-principles-to-inspire-customer-loyalty/">loyalty from the client</a>.  Most of these types of industries will continue to see reduced premiums, but if you’re willing to play the long game, you can see substantial gains down the road.</p>
+<p>Regardless of what niche you choose, it will always come down to the value you are able to provide as an insurance advisor. Look around and imagine all the possibilities that no one else can see.  Using these tips, you can start building and growing your expertise and pipeline!</p>
+<p>For more on this topic, check out the full episode of The Independent Agent <a style="color: #0000ff; font-weight: 500;" href="https://totalcsr.com/resource-center/what-strategies-should-agencies-and-producers-use-to-overcome-challenges-presented-by-the-pandemic/">here</a>.</p>
+<p><strong>About the Author</strong></p>
+<p>Justin Goodman has spent the past 20 years in insurance. He is the co-founder and CEO of Total CSR and co-founder and Managing Director of Project 55. By the age of 29, he was recognized as one of the top five construction insurance experts nationwide by Risk and Insurance Magazine. He also was named to Insurance Business Magazine's Hot 100 and most recently the 2024 Insurance Journal Agent of the Year. Justin has trained over 50,000 CSR's, account managers and producers through his work at Total CSR. He has a passion for developing the next generation of insurance professionals. When not with his family, he devotes his free time to speaking engagements and advising agency owners across the country.</p>
+<p><!-- /wp:paragraph --></p>

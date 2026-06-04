@@ -1,0 +1,27 @@
+---
+title: "Admitted vs. Non-Admitted Insurance Companies: Key Differences"
+date: "2019-08-29"
+lastModified: "2026-05-13"
+author: "trenton"
+categories:
+  - "Helpful Tips: For Employees"
+---
+
+<!-- wp:paragraph -->
+<p> </p>
+<!-- /wp:paragraph --><!-- wp:heading {"ifso_condition_rules":{},"ifso_aud_addrm":{}} -->
+<h2><strong>Understanding the Difference Between Admitted and Non-Admitted Insurance Companies</strong></h2>
+<p>Working in the insurance industry, you may come across terminology that appears simple on the surface, yet has much more nuance than initially anticipated. For instance, newer agents sometimes struggle to determine the difference between <strong><em>admitted and non-admitted insurance companies</em></strong>. While some agents may believe that admitted insurance companies are “more legitimate” because they are given this special designation by a state’s insurance commissioner, the reality is more complex. To put it simply, this stamp of legitimacy is more of an administrative signal than a stability signal.</p>
+<h2><br /><strong>Admitted vs. Non-Admitted Insurance Companies</strong></h2>
+<h2><strong>Admitted Companies</strong></h2>
+<p>Admitted insurance companies are those that have filed an application and have been subsequently approved by each state’s insurance commissioner. It can be a lengthy process and requires applying insurance companies to comply with a state’s insurance requirements—like the filing and approval of the company’s forms and rates. Once approved, the admitted insurance carrier must pay a portion of its income into the state’s insurance guaranty association. The benefit of this arrangement, however, is that if the admitted insurance company becomes insolvent, the state will help pay policyholders’ claims.</p>
+<h2><strong>Non-Admitted Companies</strong></h2>
+<p>By contrast, non-admitted insurance companies (also called “excess and surplus line carriers”) operate in states without going through the approval process above. They are not bound by filed forms or rates, so they have more flexibility to write and design policies that cover unique, specific risks. In other words, it can fill the gap when standard markets can’t write a risk or when an <a href="https://totalcsr.com/insurance-glossary/admitted-carrier/">admitted carrier</a> cannot offer appropriate terms.</p>
+<p>While non-admitted insurance companies are regulated by state Surplus Line offices, regulation is less stringent compared to admitted insurance companies. Most notably, purchasers of non-admitted insurance companies do not have protections offered by each state’s guaranty fund. However, each state charges taxes for non-admitted insurance and agents must be licensed in surplus lines to sell non-admitted insurance. Laypeople may quickly conclude that non-admitted carriers aren’t legitimate or financially stable, but these companies—to sell surplus lines insurance—must set aside a large monetary reserve or obtain adequate reinsurance.</p>
+<h2><strong>Insolvency Issues</strong></h2>
+<p>This distinction between admitted and non-admitted insurance companies also makes a difference in terms of insolvency and liquidation. When a state’s insurance commissioner finds that an insurance company is undergoing significant financial stress, that company will go through a process called “rehabilitation.” The insurance commissioner will make every effort to help the company regain its financial footing, but if the company cannot be rehabilitated, the company is declared insolvent and a court will order liquidation.</p>
+<p>If an admitted company is to be liquidated, the processing and payment of existing and future claims are controlled by the state’s guaranty fund. However, the fund’s obligations are constrained by state regulations and will only pay claims up to the state’s cap. If insureds exceed a certain revenue threshold, they may not qualify for any guaranty fund <a href="https://totalcsr.com/insurance-glossary/coverage/">coverage</a>. Guaranty funds, depending on the state, typically provide only $100,000 to $500,000 of protection per policy (even if the policy has a higher limit). If several liquidations take place in one state, the state’s guaranty fund may be depleted, leading to policyholders receiving pennies on the dollar of their true loss amount. So while guaranty funds provide some level of comfort, policyholders, in reality, can be left with little to no assistance.</p>
+<p>As for the liquidation of non-admitted companies, the liquidator or receiver collects the assets of the non-admitted company, determines all liabilities and creditors outstanding, develops a plan to distribute company assets, and submits the plan to a court for approval. Often, the insurance company’s estate won’t yield sufficient cash to pay the company’s creditors in full. Policyholders typically fund defense and settlement payments themselves before requesting reimbursement from the company’s estate. Like policyholders of admitted companies, patience is inevitably required.</p>
+<h2><strong>Do Your Research</strong></h2>
+<p>Ultimately, these distinctions between admitted and non-admitted companies must absolutely be considered. However, it is more important to examine the financial strength of individual providers, the breadth of coverage, and the competitiveness of terms. Whether or not an insurance company is admitted or non-admitted, one should focus on the quality of the provider itself.</p>
+<!-- /wp:paragraph -->
