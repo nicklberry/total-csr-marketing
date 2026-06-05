@@ -1,0 +1,22 @@
+---
+title: "InsureTech Connect: Meet Game-Changers in Insurance"
+date: "2019-08-29"
+lastModified: "2026-05-13"
+author: "trenton"
+categories:
+  - "Agency Owner Articles"
+---
+
+<!-- wp:heading {"ifso_condition_rules":{},"ifso_aud_addrm":{}} -->
+<h2><strong>InsureTech Connect: An Opportunity to Meet Game-Changers in the Insurance Industry</strong></h2>
+<p>Working in the insurance industry, it may seem like you could spend every weekend attending a conference, meetup, or get together. There is always something new to learn and new people to meet.</p>
+<p>But having said that, there is one upcoming conference that brings together some of the most recognized and well-respected practitioners in the industry. The speakers and audience members engage in a multi-day experience involving terrific speakers, in-depth conversations of recent trends, and, yes, networking.</p>
+<p>That conference is called <a style="color: #0000ff;" href="http://www.insuretechconnect.com">InsureTech Connect</a>. Occurring at Las Vegas’s MGM Grand Hotel from September 23 through September 25, InsureTech Connect describes itself as the “world’s largest gathering of insurance leaders and innovators.” Ultimately, InsureTech Connect is an extremely valuable conference for those working in the industry and those who are connected to the industry. <a style="color: #0000ff;" href="https://totalcsr.com/">Total CSR</a> will be at the conference and would love to connect if you plan on attending as well.</p>
+<h2><br /><strong>InsureTech Connect: Great Insights and Wonderful Conversations</strong></h2>
+<p>InsureTech Connect has only been in existence for less than five years, yet it has quickly become one of the insurance industry’s most important conferences. According to the conference organizers, there will be over 7,000 attendees at this year’s event. Those attendees come from 60 countries, making this conference the “<a style="color: #0000ff;" href="https://insuretechconnect.com/">most global gathering of insurance leaders</a>.” In other words, the vast scale and diversity of the InsureTech Connect attendees make it a great opportunity to connect with your peers in the insurance industry. Not only are there more than 600 insurance industry CEOs attending the conference, but entrepreneurs, investors, and other actors within the insurance industry will also be attending.</p>
+<p>Similar to other conferences, InsureTech Connect hosts a wide range of speakers throughout the event. The similarities stop there, however, as this conference brings together some of the industry’s top practitioners to share their wisdom. There is a long list of speakers but some notable speakers include Maurice Greenberg (chairman and CEO of Starr Insurance Companies), Glenn Shapiro (President of Allstate <a href="https://totalcsr.com/insurance-glossary/personal-lines/">Personal Lines</a>) Richie Whitt (co-CEO of Markel Corp.) and Joan Lamm-Tennant (CEO and founder of Blue Marble Microinsurance).</p>
+<h2><strong>Agency Connect</strong></h2>
+<p>In addition to this stellar lineup of speakers, InsureTech Connect offers a terrific pre-conference event specifically catered to agencies and brokers. It is called <a style="color: #0000ff; font-weight: 500;" href="https://insuretechconnect.com/">Agency Connect</a> and its prime focus is on “helping agencies and brokers thrive in the new digital first, tech-enabled reality.” Agency Connect brings together these two groups to <a style="color: #000000; font-weight: 500;" href="https://insuretechconnect.com/agency-connect">discuss things like</a> emerging opportunities and challenges that agencies and brokers face, enabling technologies that agencies should embrace or ignore, and how insure-techs can help insurers and agencies find synergies. Those eligible to attend Agency Connect <a style="color: #000000; font-weight: 500;" href="https://insuretechconnect.com/agency-connect">are</a> individuals working at brokerages and agencies, entrepreneurs building for or looking to explore the agency and broker ecosystem, and venture and private equity investors.</p>
+<p>We at Total CSR will be attending Agency Connect. Ultimately, we believe that both Agency Connect and InsureTech Connect are amazing opportunities to learn and meet new people.</p>
+<p>If you are headed to this year’s conference, we hope to see you there. Like we mentioned above, feel free to reach out in advance if you’d like to connect. <strong>You can message me on Linked-In or e-mail me at justin@totalcsr.com</strong></p>
+<!-- /wp:paragraph -->

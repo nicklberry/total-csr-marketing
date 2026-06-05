@@ -1,0 +1,19 @@
+---
+title: "The Power of Empathy: How Millennial Owners Are Succeeding"
+date: "2019-03-13"
+lastModified: "2025-08-21"
+author: "trenton"
+categories:
+  - "Agency Owner Articles"
+  - "Helpful Tips: For Leadership"
+---
+
+<!-- wp:paragraph -->
+<p>A number of interesting trends exist among millennial entrepreneurs - particularly when it comes to their use of empathy within the workplace. <a style="color: #0000ff; font-weight: 500;" href="https://www.allbusiness.com/employee-retention-tips-120007-1.html/2" target="_blank" rel="noreferrer noopener" aria-label=" (opens in a new tab)">Small business expert Deborah Sweeney discusses these trends</a> and the research behind them in the context of the small business world. One of the most interesting points she discusses is a Guardian study that demonstrates that “millennial entrepreneurs are more focused than older business owners on the financial and emotional well-being of their employees.”</p>
+<p>The millennial generation has a different appreciation for the value of empathy - particularly in the workplace. That same study conducted by the Guardian shows that 66% of small businesses owned by a millennial emphasize the importance of a company culture of well-being. Businesses owned by members of the baby boomer generation are 15% less likely to promote such a culture. These results clearly demonstrate that when it comes to inspiring a sense of well-being in the workplace, millennial-owned businesses are winning.</p>
+<p>The key to success in this area is simple: caring. Employees are far more likely to remain with a company when they feel that the company and its leaders care about them. Caring and empathy lead to employee loyalty. This is because employers who take an empathic approach are able to develop a solid understanding of the needs of employees. Based on this understanding, employers can then take the appropriate steps to meet these needs.</p>
+<p>In addition to <a href="https://totalcsr.com/insurance-agency-blog/7-ways-top-agencies-leverage-culture-to-fight-turnover-problems/">lowering rates of turnover</a>, demonstrating to employees that they are cared for tends to inspire higher levels of productivity. When employees feel that their company takes them for granted, they tend to mentally check out. Dissatisfied employees naturally do not feel compelled to perform to the best of their abilities. This means that it is imperative that employers take strides toward the development and integration of measures that communicate a sense of empathy and caring to employees.</p>
+<p>The workforce as a whole is slowly shifting toward this mindset. According to Sweeney, the previously discussed Guardian study shows that 50 percent of small business workers strongly agree that their employer cares about their well-being, which is a 9 percent increase from 2015. As more and more employers are already integrating empathy-based efforts, it is important for other employers to recognize that they must follow suit if they wish to remain competitive when it comes to attracting and retaining top talent.</p>
+<h2><strong>About the Author</strong></h2>
+<p>Justin Goodman has spent the past 20 years in insurance. He is the co-founder and CEO of Total CSR and co-founder and Managing Director of Project 55. By the age of 29, he was recognized as one of the top five construction insurance experts nationwide by Risk and Insurance Magazine. He also was named to Insurance Business Magazine's Hot 100 and most recently the 2024 Insurance Journal Agent of the Year. Justin has trained over 50,000 CSR's, account managers and producers through his work at Total CSR. He has a passion for developing the next generation of insurance professionals. When not with his family, he devotes his free time to speaking engagements and advising agency owners across the country.</p>
+<!-- /wp:paragraph -->

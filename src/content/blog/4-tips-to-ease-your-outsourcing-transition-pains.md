@@ -1,0 +1,25 @@
+---
+title: "4 Tips to Ease Your Outsourcing Transition Pains"
+date: "2020-06-15"
+lastModified: "2025-03-25"
+author: "trenton"
+categories:
+  - "Agency Owner Articles"
+  - "Helpful Tips: For Leadership"
+---
+
+<!-- wp:paragraph -->
+<p>Outsourcing has become an increasingly popular option at agencies across the country to handle data entry and back-end processes that do not require client interaction.  Agencies have found this to be a great way to fill entry-level positions as the pool of eligible candidates continues to shrink.   It also proves to be beneficial as it frees Account Managers to focus on more high-skilled, relationship building tasks for clients. While this arrangement does present a significant up-side, it is important that agency leaders are able to understand how this solution can work for their organization.</p>
+<p>Here are a few useful tips for agencies as they integrate outsourcing practices into the operations of the agency.</p>
+<p><strong>1.</strong>  Make sure you have a full understanding of responsibilities that could be outsourced.  Have Account Managers provide a list of all processes that do not require client interaction, how often they perform these processes each day and approximately how much time each of those processes takes.   The compilation of this information should provide clarification on the actual need for outsourcing.  It will also give you the details you need to calculate the number of hours per week you could save current staff and transfer to an outsource company employee.</p>
+<p><strong>2.</strong>  Help your team understand why this change is necessary.   As work is shifted over to the outsourcing company some staff might have concerns. Whether it is a fear of losing their job or concern about general expectations if certain duties are taken away, it is important to make sure to provide answers to any questions they may have on the subject.  Taking the time to discuss and explain the long-term goals of integrating outsourcing will provide the reassurance employees need and the details they need to better understand how this benefits them in their role.  </p>
+<p>Discuss details about how outsourcing will allow Account Managers more time to dedicate to those functions of the job which are more critical to building client relationships.   Also talk about how this change may include new services to clients that they did not previously have time to handle which ultimately gives them an opportunity to develop new skills.  Make sure individuals are able to understand how putting all of these pieces together will allow them to focus on value-driven tasks which ultimately influence retention.  </p>
+<p>Keeping open communication about why and how everything will work together will clear a path for employees to get on board and buy-in to a new way of doing things.</p>
+<p><strong>3.</strong> Ensure separation of duties is clarified for all employees.  Workflows should be updated to note any tasks that should be handled by the outsource company.  Providing these specifications to Account Managers should help reduce any confusion around who should be handling what and lower the likelihood that anything falls through the cracks.</p>
+<p><strong>4.</strong> Establish guidelines for accountability.  Integrating outsourcing is an ongoing process that must be continuously managed to ensure that it is generating the desired results for the agency and to identify any shifts to the process that might need to be made along the way.</p>
+<p>The right KPI’s will demonstrate the level of effectiveness outsourcing is having on the agency.   Whether it is increased retention, reduced overtime for in-office staff, or the level of output from the outsourcing firm, it is critical that leadership maintain oversight and review KPI’s regularly.</p>
+<p>Outsourcing can be a big change and present certain challenges.  Putting these steps together will help agencies prepare and implement outsourcing practices into the operations.</p>
+<p>For more discussion on this topic, check out the full episode of The Independent Agent podcast <a style="color: #0000ff; font-weight: 500;" href="https://totalcsr.com/resource-center/my-agency-is-requiring-me-to-pay-the-sir-on-an-eo-claim-caused-by-my-account-manager/">here</a>!</p>
+<h2><strong>About the Author</strong></h2>
+<p>Justin Goodman has spent the past 20 years in insurance. He is the co-founder and CEO of Total CSR and co-founder and Managing Director of Project 55. By the age of 29, he was recognized as one of the top five construction insurance experts nationwide by Risk and Insurance Magazine. He also was named to Insurance Business Magazine's Hot 100 and most recently the 2024 Insurance Journal Agent of the Year. Justin has trained over 50,000 CSR's, account managers and producers through his work at Total CSR. He has a passion for developing the next generation of insurance professionals. When not with his family, he devotes his free time to speaking engagements and advising agency owners across the country.</p>
+<!-- /wp:paragraph -->
