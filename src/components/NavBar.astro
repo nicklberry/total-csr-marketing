@@ -52,7 +52,8 @@ const dropdownNav = [
     </ul>
 
     <div class="navbar-right">
-      <a href="/demo/" class="btn btn-primary navbar-cta">Book a Demo</a>
+      <a href="https://platform.totalcsr.com" class="btn-ghost navbar-login" target="_blank" rel="noopener">Log In</a>
+      <a href="/book-a-demo/" class="btn btn-primary navbar-cta">Book a Demo</a>
 
       <button class="navbar-hamburger" id="navbar-hamburger" aria-label="Open menu" aria-expanded="false">
         <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -68,6 +69,7 @@ const dropdownNav = [
     </div>
   </div>
 
+  <!-- Mobile menu -->
   <div class="navbar-mobile-menu" id="navbar-mobile-menu" aria-hidden="true">
     <div class="navbar-mobile-links">
       {dropdownNav.map(section => (
@@ -90,11 +92,9 @@ const dropdownNav = [
 <style>
   .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
-    background-color: var(--color-white);
+    background: var(--color-white);
     height: var(--nav-height);
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
   }
@@ -111,7 +111,7 @@ const dropdownNav = [
     height: var(--nav-height);
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
   }
 
   .navbar-logo {
@@ -124,6 +124,7 @@ const dropdownNav = [
     letter-spacing: -0.01em;
   }
 
+  /* Desktop nav */
   .navbar-links {
     display: flex;
     align-items: center;
@@ -146,8 +147,14 @@ const dropdownNav = [
     padding: 8px 12px;
     border-radius: 6px;
     text-decoration: none;
-    transition: color 0.15s ease, background-color 0.15s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s, background-color 0.15s;
     white-space: nowrap;
+    height: 34px;
+    line-height: 1;
+    font-family: inherit;
   }
 
   .navbar-link:hover,
@@ -245,14 +252,27 @@ const dropdownNav = [
   .navbar-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     flex-shrink: 0;
+    margin-left: auto;
   }
 
-  .navbar-cta {
-    padding: 9px 20px;
+  .btn-ghost {
     font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-gray-dark);
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: color 0.15s, background-color 0.15s;
   }
+
+  .btn-ghost:hover {
+    color: var(--color-navy);
+    background-color: var(--color-navy-10);
+  }
+
+  .navbar-cta { padding: 9px 20px; font-size: 0.875rem; }
 
   .navbar-hamburger {
     display: none;
@@ -263,6 +283,7 @@ const dropdownNav = [
     padding: 4px;
   }
 
+  /* Mobile menu */
   .navbar-mobile-menu {
     display: none;
     background: var(--color-white);
@@ -272,9 +293,7 @@ const dropdownNav = [
     overflow-y: auto;
   }
 
-  .navbar-mobile-menu.open {
-    display: block;
-  }
+  .navbar-mobile-menu.open { display: block; }
 
   .navbar-mobile-links {
     display: flex;
@@ -304,20 +323,64 @@ const dropdownNav = [
     gap: 4px;
   }
 
-  .navbar-mobile-link {
-    display: block;
+  .mobile-section { display: flex; flex-direction: column; }
+
+  .mobile-section-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     padding: 10px 12px;
     font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+  }
+
+  .mobile-section-trigger:hover { background: var(--color-navy-10); }
+
+  .mobile-section-trigger[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .mobile-section-links {
+    display: none;
+    flex-direction: column;
+    gap: 1px;
+    list-style: none;
+    margin: 0;
+    padding: 4px 0 4px 12px;
+  }
+
+  .mobile-section-links.open { display: flex; }
+
+  .navbar-mobile-link {
+    display: block;
+    padding: 8px 12px;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: var(--color-gray-dark);
     border-radius: 6px;
     text-decoration: none;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    transition: background-color 0.15s, color 0.15s;
   }
 
   .navbar-mobile-link:hover {
     background-color: var(--color-navy-10);
     color: var(--color-navy);
+  }
+
+  .mobile-overview { font-weight: 600; color: var(--color-navy); }
+
+  .mobile-divider {
+    height: 1px;
+    background: var(--color-gray-border);
+    margin: 8px 0;
   }
 
   .navbar-mobile-cta {
@@ -328,62 +391,97 @@ const dropdownNav = [
   }
 
   @media (max-width: 900px) {
-    .navbar-links {
-      display: none;
-    }
-
-    .navbar-hamburger {
-      display: block;
-    }
-
-    .navbar {
-      height: auto;
-      min-height: var(--nav-height);
-    }
-
-    .navbar-inner {
-      height: var(--nav-height);
-    }
+    .navbar-links,
+    .navbar-login { display: none; }
+    .navbar-hamburger { display: block; }
+    .navbar { height: auto; min-height: var(--nav-height); }
+    .navbar-inner { height: var(--nav-height); }
   }
 
   @media (max-width: 768px) {
-    .navbar-inner {
-      padding: 0 24px;
-    }
+    .navbar-inner { padding: 0 20px; }
   }
 </style>
 
 <script>
   const nav = document.getElementById('main-nav');
-  const hamburger = document.getElementById('navbar-hamburger');
+  const hamburger = document.getElementById('navbar-hamburger') as HTMLButtonElement | null;
   const mobileMenu = document.getElementById('navbar-mobile-menu');
-  const iconMenu = hamburger?.querySelector('.icon-menu') as HTMLElement | null;
+  const iconMenu  = hamburger?.querySelector('.icon-menu')  as HTMLElement | null;
   const iconClose = hamburger?.querySelector('.icon-close') as HTMLElement | null;
 
-  // Scroll behavior
+  // Scroll shadow
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      nav?.classList.add('scrolled');
-    } else {
-      nav?.classList.remove('scrolled');
-    }
+    nav?.classList.toggle('scrolled', window.scrollY > 10);
   }, { passive: true });
 
-  // Mobile menu toggle
+  // Desktop dropdowns
+  const closeTimers = new WeakMap<HTMLElement, ReturnType<typeof setTimeout>>();
+
+  document.querySelectorAll<HTMLElement>('.nav-item.has-dropdown').forEach(item => {
+    const trigger = item.querySelector<HTMLElement>('.dropdown-trigger');
+
+    item.addEventListener('mouseenter', () => {
+      const t = closeTimers.get(item);
+      if (t) { clearTimeout(t); closeTimers.delete(item); }
+      open(item);
+    });
+    item.addEventListener('mouseleave', () => {
+      const t = setTimeout(() => close(item), 150);
+      closeTimers.set(item, t);
+    });
+
+    trigger?.addEventListener('click', e => {
+      e.preventDefault();
+      item.classList.contains('open') ? close(item) : open(item);
+    });
+
+    trigger?.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(item); }
+      if (e.key === 'Escape') close(item);
+    });
+  });
+
+  function open(item: HTMLElement) {
+    document.querySelectorAll<HTMLElement>('.nav-item.open').forEach(el => { if (el !== item) close(el); });
+    item.classList.add('open');
+    item.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'true');
+  }
+
+  function close(item: HTMLElement) {
+    const t = closeTimers.get(item);
+    if (t) { clearTimeout(t); closeTimers.delete(item); }
+    item.classList.remove('open');
+    item.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+  }
+
+  document.addEventListener('click', e => {
+    if (!(e.target as Element).closest('.has-dropdown')) {
+      document.querySelectorAll<HTMLElement>('.nav-item.open').forEach(close);
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.querySelectorAll<HTMLElement>('.nav-item.open').forEach(close);
+  });
+
+  // Mobile toggle
   hamburger?.addEventListener('click', () => {
     const isOpen = mobileMenu?.classList.contains('open');
-    if (isOpen) {
-      mobileMenu?.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      mobileMenu?.setAttribute('aria-hidden', 'true');
-      if (iconMenu) iconMenu.style.display = '';
-      if (iconClose) iconClose.style.display = 'none';
-    } else {
-      mobileMenu?.classList.add('open');
-      hamburger.setAttribute('aria-expanded', 'true');
-      mobileMenu?.setAttribute('aria-hidden', 'false');
-      if (iconMenu) iconMenu.style.display = 'none';
-      if (iconClose) iconClose.style.display = '';
-    }
+    mobileMenu?.classList.toggle('open', !isOpen);
+    hamburger.setAttribute('aria-expanded', String(!isOpen));
+    mobileMenu?.setAttribute('aria-hidden', String(isOpen));
+    if (iconMenu)  iconMenu.style.display  = isOpen ? '' : 'none';
+    if (iconClose) iconClose.style.display = isOpen ? 'none' : '';
+  });
+
+  // Mobile accordions
+  document.querySelectorAll<HTMLElement>('.mobile-section-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const links = btn.nextElementSibling as HTMLElement | null;
+      const isOpen = links?.classList.contains('open');
+      links?.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
   });
 </script>
