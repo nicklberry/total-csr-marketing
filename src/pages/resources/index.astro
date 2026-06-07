@@ -1,0 +1,535 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import CTABand from '../../components/CTABand.astro';
+
+// --- Blog: 6 most recent ---
+const allPosts = await getCollection('blog');
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 6)
+  .map(post => ({
+    title:    post.data.title,
+    excerpt:  post.data.excerpt ?? '',
+    date:     new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }),
+    category: post.data.categories?.[0] ?? 'Insights',
+    slug:     `/insurance-agency-blog/${post.id}/`,
+  }));
+
+// --- Glossary: 10 most recently added ---
+const allGlossary = await getCollection('glossary');
+const recentGlossary = allGlossary
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 10)
+  .map(entry => ({
+    title: entry.data.title,
+    slug:  `/insurance-glossary/${entry.id}/`,
+  }));
+
+// --- eBooks: static list (no CMS collection yet) ---
+const ebooks = [
+  {
+    kicker: 'E-Book',
+    title: 'The Definitive Guide to Practical Insurance Onboarding',
+    desc: 'A structured onboarding program built around real daily tasks — ACORD forms, loss runs, COIs, endorsements, and more.',
+    href: 'https://totalcsr.com/ebookpracticalinsuranceonboarding',
+    accent: '#0F3A5D',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'Surviving Your First 90 Days',
+    desc: 'What new CSRs and account managers need to know before they\'re handling accounts on their own.',
+    href: 'https://totalcsr.com/surviving-your-first-90-days',
+    accent: '#0F3A5D',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'The Definitive Guide to Hiring the Best Talent',
+    desc: 'How to stop hiring on gut feel and build a process that consistently puts the right people in the right seat.',
+    href: 'https://totalcsr.com/the-definitive-guide-to-hiring-the-best-talent',
+    accent: '#0C3050',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'Agency Accountability Playbook',
+    desc: 'A practical guide to building standards your team actually follows, without micromanaging every detail.',
+    href: 'https://totalcsr.com/ebookagencyaccountabilityplaybook',
+    accent: '#1A5A8A',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'AI Change Management Guide',
+    desc: 'How independent agencies can introduce AI tools without losing the human side of client service.',
+    href: 'https://totalcsr.com/changemanagementguide',
+    accent: '#0F3A5D',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'Is It Covered?',
+    desc: 'A plain-language guide to the coverage questions CSRs hear most — and how to answer them confidently.',
+    href: 'https://totalcsr.com/isitcovered',
+    accent: '#0C3050',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'Pre Employment Tests',
+    desc: 'How to use skills-based screening to filter candidates before the interview, not after.',
+    href: 'https://totalcsr.com/pre-employment-tests',
+    accent: '#1A5A8A',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'How to Become Indispensable',
+    desc: 'What separates the CSRs agencies promote from the ones they replace — and how to become the former.',
+    href: 'https://totalcsr.com/how-to-become-indispensable',
+    accent: '#0F3A5D',
+  },
+  {
+    kicker: 'E-Book',
+    title: '7 Ways Top Agencies Leverage Culture',
+    desc: 'Culture isn\'t a perk. It\'s an operational tool. Here\'s how leading agencies build one deliberately.',
+    href: 'https://totalcsr.com/7waystopagenciesleverageculture',
+    accent: '#0C3050',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'The Technology Implementation Guide',
+    desc: 'A step-by-step approach to rolling out new agency tech without losing your team along the way.',
+    href: 'https://totalcsr.com/the-technology-implementation-guide',
+    accent: '#1A5A8A',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'The Remote Worker Onboarding Handbook',
+    desc: 'Onboarding a remote CSR is harder than it looks. This guide covers what agencies miss — and how to fix it.',
+    href: 'https://totalcsr.com/the-remote-worker-onboarding-handbook',
+    accent: '#0F3A5D',
+  },
+  {
+    kicker: 'E-Book',
+    title: 'Practical Guide to Managing Virtual Teams',
+    desc: 'How to manage accountability, communication, and performance when your team isn\'t in the same room.',
+    href: 'https://totalcsr.com/practical-guide-to-managing-virtual-teams',
+    accent: '#0C3050',
+  },
+];
+---
+
+<BaseLayout
+  title="Insurance Agency Resources | Total CSR"
+  description="Free guides, blog posts, and glossary terms for independent P&C agency owners and operations leaders. Practical resources on hiring, training, and building a high-performing team."
+>
+  <NavBar />
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow">Resources</p>
+      <h1 class="page-headline">Everything your agency needs to build a better team.</h1>
+      <p class="page-subhead">Practical guides, blog content, and insurance terminology — all written for independent P&amp;C agencies.</p>
+      <div class="hero-nav">
+        <a href="#blog" class="hero-nav-link">Blog Posts</a>
+        <a href="#glossary" class="hero-nav-link">Glossary</a>
+        <a href="#ebooks" class="hero-nav-link">eBooks &amp; Guides</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1 — BLOG POSTS
+  ============================================================ -->
+  <section class="content-section bg-white" id="blog">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Latest from the Blog</p>
+        <h2 class="section-heading">Practical content for agency leaders.</h2>
+        <p class="section-subhead">No generic HR advice. Just what works for independent P&amp;C agencies.</p>
+      </div>
+
+      <div class="blog-grid">
+        {recentPosts.map(post => (
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="blog-category">{post.category}</span>
+              <span class="blog-date">{post.date}</span>
+            </div>
+            <h3 class="blog-title">
+              <a href={post.slug}>{post.title}</a>
+            </h3>
+            {post.excerpt && <p class="blog-excerpt">{post.excerpt}</p>}
+            <a href={post.slug} class="card-cta">Read more &rarr;</a>
+          </article>
+        ))}
+      </div>
+
+      <div class="section-footer">
+        <a href="/insurance-agency-blog/" class="btn btn-outline">View all blog posts &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — GLOSSARY
+  ============================================================ -->
+  <section class="content-section bg-gray" id="glossary">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Insurance Glossary</p>
+        <h2 class="section-heading">Know the terms. Serve clients better.</h2>
+        <p class="section-subhead">Plain-language definitions for the coverage questions your team hears every day.</p>
+      </div>
+
+      <div class="glossary-grid">
+        {recentGlossary.map(entry => (
+          <a href={entry.slug} class="glossary-pill">
+            {entry.title}
+          </a>
+        ))}
+      </div>
+
+      <div class="section-footer">
+        <a href="/insurance-glossary/" class="btn btn-outline">Browse the full glossary &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — EBOOKS & GUIDES
+  ============================================================ -->
+  <section class="content-section bg-white" id="ebooks">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">eBooks &amp; Guides</p>
+        <h2 class="section-heading">Free downloads for agency leaders.</h2>
+        <p class="section-subhead">In-depth guides on hiring, training, retention, and operations — written specifically for independent P&amp;C agencies.</p>
+      </div>
+
+      <div class="ebooks-grid">
+        {ebooks.map(book => (
+          <a href={book.href} class="ebook-card" target="_blank" rel="noopener">
+            <div class="ebook-thumb" style={`background: ${book.accent};`}>
+              <div class="ebook-thumb-inner">
+                <span class="ebook-kicker">{book.kicker}</span>
+                <p class="ebook-thumb-title">{book.title}</p>
+              </div>
+            </div>
+            <div class="ebook-body">
+              <p class="ebook-title">{book.title}</p>
+              <p class="ebook-desc">{book.desc}</p>
+              <span class="ebook-cta">Get the guide &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    headline="Don't want to build this yourself?"
+    subtext="Total CSR is a structured training and onboarding platform built specifically for independent P&C agencies. See what it looks like for your team."
+    ctaLabel="Book a Demo"
+    ctaHref="/book-a-demo/"
+  />
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* ── PAGE HERO ── */
+  .page-hero {
+    background: var(--color-navy);
+    padding: 80px 32px 72px;
+    text-align: center;
+  }
+  .page-hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-green);
+    margin-bottom: 16px;
+  }
+  .page-headline {
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .page-subhead {
+    font-size: 1.125rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+  .hero-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hero-nav-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 8px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 150ms, color 150ms;
+  }
+  .hero-nav-link:hover {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+  }
+
+  /* ── SHARED SECTION STRUCTURE ── */
+  .content-section {
+    padding: 80px 32px;
+  }
+  .bg-white { background: var(--color-white); }
+  .bg-gray  { background: var(--color-gray-light); border-top: 1px solid var(--color-gray-border); border-bottom: 1px solid var(--color-gray-border); }
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-header {
+    margin-bottom: 48px;
+  }
+  .section-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-green);
+    margin-bottom: 10px;
+  }
+  .section-heading {
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    font-size: clamp(22px, 2.5vw, 34px);
+    font-weight: 700;
+    color: var(--color-navy);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .section-subhead {
+    font-size: 1.0625rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    max-width: 600px;
+  }
+  .section-footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: var(--radius-card);
+    text-decoration: none;
+    transition: background 150ms, color 150ms, border-color 150ms;
+  }
+  .btn-outline {
+    color: var(--color-navy);
+    border: 1.5px solid var(--color-navy);
+    background: transparent;
+  }
+  .btn-outline:hover {
+    background: var(--color-navy);
+    color: #fff;
+  }
+
+  /* ── BLOG GRID ── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .blog-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius-card);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: box-shadow 200ms, transform 200ms;
+  }
+  .blog-card:hover {
+    box-shadow: 0 4px 16px rgba(15,58,93,0.12);
+    transform: translateY(-2px);
+  }
+  .blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .blog-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-green-90);
+    background: var(--color-green-10);
+    padding: 2px 9px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .blog-date {
+    font-size: 0.8125rem;
+    color: var(--color-gray-mid);
+  }
+  .blog-title {
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .blog-title a {
+    color: var(--color-navy);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .blog-title a:hover { color: var(--color-navy-60); }
+  .blog-excerpt {
+    font-size: 0.9rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .card-cta {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-green-90);
+    text-decoration: none;
+    margin-top: auto;
+  }
+  .card-cta:hover { color: var(--color-navy); }
+
+  /* ── GLOSSARY ── */
+  .glossary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .glossary-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 18px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: 999px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-navy);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: background 150ms, border-color 150ms, color 150ms;
+  }
+  .glossary-pill:hover {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: #fff;
+  }
+
+  /* ── EBOOKS GRID ── */
+  .ebooks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .ebook-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: box-shadow 200ms, transform 200ms;
+  }
+  .ebook-card:hover {
+    box-shadow: 0 4px 16px rgba(15,58,93,0.12);
+    transform: translateY(-2px);
+  }
+  .ebook-thumb {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .ebook-thumb-inner {
+    text-align: center;
+  }
+  .ebook-kicker {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-green);
+    margin-bottom: 6px;
+  }
+  .ebook-thumb-title {
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .ebook-body {
+    padding: 18px 20px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ebook-title {
+    font-family: 'Nexa Bold', 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    line-height: 1.3;
+  }
+  .ebook-desc {
+    font-size: 0.8125rem;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .ebook-cta {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-green-90);
+    margin-top: 4px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .blog-grid    { grid-template-columns: repeat(2, 1fr); }
+    .ebooks-grid  { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .content-section { padding: 56px 20px; }
+    .page-hero        { padding: 56px 20px 52px; }
+    .blog-grid        { grid-template-columns: 1fr; }
+    .ebooks-grid      { grid-template-columns: 1fr; }
+  }
+</style>
